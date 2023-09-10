@@ -1,0 +1,83 @@
+body {
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('img/bgg.webp');
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+    /* margin-top: 20px; */
+    font-family: 'Zabars', Arial, Helvetica, sans-serif;
+}
+
+.mobile-btn{
+    display: flex;
+    margin-top: -35px;
+    justify-content: space-between;
+    width: 720px;
+}
+
+.mobile-btn img{
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 30px;
+    width: 30px;
+}
+
+/* .start-screen {
+    position: absolute;
+    left: 408px;
+    top: 117px;
+    height: 480px;
+    width: 720px;
+    z-index: 1;
+    background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
+    object-fit: cover;
+}
+
+.start-screen img {
+    width: 100%;
+    height: 100%;
+} */
+
+h1 {
+    font-size: 50px;
+    letter-spacing: 4px;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+
+canvas {
+    background-color: black;
+    /* display: block; */
+    width: 720px;
+    height: 480px;
+    /* background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
+    background-size: 720px 500px; */
+}
+
+@media only screen and (max-width: 720px) {
+    canvas {
+        width: 100%;
+        height: 50vh;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    body {
+        background-image: none;
+    }
+}
