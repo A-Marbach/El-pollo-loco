@@ -1,6 +1,9 @@
 class Coins extends MovableObject {
   y = 200;
  x;
+
+ height = 100;
+ width = 100;
  offset = {
     top: 50,
     left: 30,
@@ -15,12 +18,13 @@ class Coins extends MovableObject {
 
 
     
-    constructor(x){
+    constructor(x, y){
         super().loadImage('img/8_coin/coin_1.png'); // super()= von movableObject das Bild laden
       
         this.loadImages(this.COINS_IMAGES);
         this.x = x;
-        this.x +=  Math.random() *2500;
+        // this.y = y;
+        
         // this.y = + Math.random() *500;
         // this.speed = 0.15 + Math.random() *0.5;
 

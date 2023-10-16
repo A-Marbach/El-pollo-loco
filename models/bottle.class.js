@@ -27,19 +27,30 @@ class Bottle extends MovableObject{
         'img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png'
     ]
 
+    IMAGES_ON_GROUND = [
+        'img/7_salsa_bottle/1_salsa_bottle_on_ground.png'
+    ]
+
     
     constructor(x){
         super().loadImage('img/6_salsa_bottle/2_salsa_bottle_on_ground.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.IMAGES_ROTATION_BOTTLE);
+        this.loadImages(this.IMAGES_ON_GROUND);
+        this.loadImages(this.IMAGES_SPLASH_BOTTLE);
 
-        this.x +=  Math.random() *2000;
+        
         this.x = x;
-        // this.throwTheBottle();
+        this.animate();
        
-        // this.y = + Math.random() *500;
-        // this.speed = 0.15 + Math.random() *0.5;
+       
 
         // this.animate();
+    }
+
+    animate(){
+        if(this.y < 100){
+            this.playanimation(this.IMAGES_SPLASH_BOTTLE);
+        }
     }
 
     // throwTheBottle() {

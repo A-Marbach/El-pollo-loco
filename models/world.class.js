@@ -48,6 +48,7 @@ class World {
 
     
     checkCollisions(){
+        //Bottle collision with enemy
         this.level.enemies.forEach((enemy) => {
             this.throwableObjects.forEach((bottle) => {
                 if (bottle.isColliding(enemy)) {
@@ -58,14 +59,16 @@ class World {
             });
 
         });
-        
-        this.throwableObjects.forEach((bottle) => {
-            setTimeout(() => {
-                // bottle.isBottleSplash = true;
-                // bottle.stopToMoveBottle = true;
-            }, 1200);
 
-        });
+       
+        
+        // this.throwableObjects.forEach((bottle) => {
+        //     setTimeout(() => {
+        //         // bottle.isBottleSplash = true;
+        //         // bottle.stopToMoveBottle = true;
+        //     }, 1200);
+
+        // });
 
 
         this.level.enemies.forEach((enemy) => {
@@ -92,6 +95,8 @@ class World {
                 this.statusBarBottle.setPercentage();
             }
         });
+
+        
 
         this.level.coins.forEach( (coin) => {
             if(this.character.isColliding(coin) ){
@@ -129,10 +134,9 @@ class World {
         
         
         this.addObjectsToMap(this.level.enemies);
-        this.addObjectsToMap(this.throwableObjects);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.bottle);
-       
+        this.addObjectsToMap(this.throwableObjects);
         
 
 

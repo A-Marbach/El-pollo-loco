@@ -20,7 +20,7 @@ console.log('My Character is,', world.character);
 
 
 window.addEventListener("keydown", (e) => { //Tastatur wird gedrückt
-    console.log(e.keyCode);
+   
     if(e.keyCode == 39){
         keyboard.RIGHT = true;
     }
