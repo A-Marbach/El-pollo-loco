@@ -4,7 +4,7 @@ class Character extends MovableObject {
     width = 140;
     speed = 15;
     timer = 0;
-    
+
     offset = {
         top: 80,
         left: 10,
@@ -92,6 +92,7 @@ class Character extends MovableObject {
     animate() {
         setInterval(() => {
             this.walking_sounds.pause();
+            
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.moveRight();
                 this.otherDirection = false;
@@ -117,12 +118,10 @@ class Character extends MovableObject {
             } else if (this.isAboveGround()) {
                 this.timer = 0;
                 this.playAnimation(this.IMAGES_JUMPING);
-            
-            }else if (!this.world.keyboard.RIGHT && !this.world.keyboard.LEFT && this.timer >= 30) {
+            } else if (!this.world.keyboard.RIGHT && !this.world.keyboard.LEFT && this.timer >= 30) {
                 this.playAnimation(this.IMAGES_LONG_SLEEP);
             } else if (!this.world.keyboard.RIGHT && !this.world.keyboard.LEFT) {
                 this.playAnimation(this.IMAGES_SLEEP);
-                
             } if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
                 this.playAnimation(this.IMAGES_WALKING);
                 this.timer = 0;

@@ -5,7 +5,7 @@ class MovableObject extends DrawableObject {
     acceleration = 1;
     energy = 100;
     lastHit = 0;
-    
+
     offset = {
         top: 0,
         left: 0,
@@ -52,12 +52,25 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
+    endbossHit() {
+        this.energy -= 34;
+        if (this.energy < 0) {
+            this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime();
+        }
+    }
+
+    endbossIsDead() {
+        return this.energy == 0;
+    }
+
 
     isColliding(mo) {
-        return  this.x + this.width > mo.x &&
-                this.y + this.height > mo.y &&
-                this.x < mo.x &&
-                this.y < mo.y + mo.height
+        return this.x + this.width > mo.x &&
+            this.y + this.height > mo.y &&
+            this.x < mo.x &&
+            this.y < mo.y + mo.height
     }
 
     // isColliding (mo) {
@@ -66,7 +79,7 @@ class MovableObject extends DrawableObject {
     //             (this.y + this.offsetY) <= (mo.y + mo.height) &&
     //             mo.onCollisionCourse;
     // }
-    
+
     moveRight() {
         this.x += this.speed;
     }
@@ -84,9 +97,12 @@ class MovableObject extends DrawableObject {
 
 
     jump() {
-        this.speedY = 18;
+        this.speedY = 15;
     }
 
+    // jumpFromChicken() {
+    //     this.speedY = 2;
+    // }
 
 }
 

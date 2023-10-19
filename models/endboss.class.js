@@ -65,27 +65,30 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_DEAD);
         this.x = 4700;
         this.speed = 5;
-        this.moveLeft();
+        // this.moveLeft();
         // this.applyGravity();
         this.animate();
 
+
     }
+
+
 
     animate() {
         setInterval(() => {
-             if (this.isDead()) {
+            if (this.endbossIsDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
-            } else if (this.isHurt()) {
+            } else 
+            if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
-            // } else if(world.character.x > 4200 && !this.firstContact){
-            //     this.playAnimation(this.IMAGES_ATTACK);
-            //     this.moveLeft();
-              }else {
-               
-                    this.playAnimation(this.IMAGES_WALKING);
-                 //    this.walking_sounds.play();
-                
-            }
+            } else if (world.character.x > 4200 || this.firstContact) {
+                this.firstContact = true;
+                    this.playAnimation(this.IMAGES_ATTACK);
+                    this.moveLeft();
+            } 
+            
+
+            
         }, 200);
 
 

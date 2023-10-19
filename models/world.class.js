@@ -1,6 +1,5 @@
 class World {
     character = new Character();
-    endboss = new Endboss();
     level = level1;
     canvas;
     ctx;
@@ -40,13 +39,17 @@ class World {
     }
     //throw a bottle
     checkThrowObjects() {
-        if (this.keyboard.D && this.bottles.length > 0) {
+        if (this.whenIHaveBottle()) {
             let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
             this.throwableObjects.push(bottle);
             this.statusBarBottle.bottles--;
             this.statusBarBottle.setPercentage();
             this.bottles.length--;
         }
+    }
+
+    whenIHaveBottle(){
+        return this.keyboard.D && this.bottles.length > 0;
     }
 
 
@@ -81,9 +84,10 @@ class World {
             this.throwableObjects.forEach((bottle) => {
                 if (bottle.isColliding(e)) {
                     bottle.isBottleSplash = true;
-                    this.endboss.hit();
+                    e.isDead = true;
+                    this.level.endboss[0].endbossHit();
                     
-                    this.statusBarEndboss.setPercentage(this.endboss.energy);
+                    this.statusBarEndboss.setPercentage(this.level.endboss[0].energy);
                     // bottle.isBottleSplash = true;
                     // bottle.stopToMoveBottle = true;
                 }
@@ -136,7 +140,7 @@ class World {
                 }
             }
         });
-        //Character collision with Endboss and hit the Character
+        //Character collision with enemies and hit the Character
         this.level.endboss.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 if (this.character.y + this.character.height > enemy.y && this.character.isAboveGround() && !this.character.isHurt()) {
