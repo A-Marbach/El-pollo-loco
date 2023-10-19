@@ -4,11 +4,14 @@ let keyboard = new Keyboard();
 
 function startScreen(){
     canvas = document.getElementById('canvas');
-
+    document.getElementById('game-over').classList.add('d-none');
+    document.getElementById('win').classList.add('d-none');
 }
 
 
 function init(){
+    
+
 canvas = document.getElementById('canvas');
 world = new World(canvas, keyboard);
 

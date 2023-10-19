@@ -58,14 +58,14 @@ const level1 = new Level(
         new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719 * 6)
     ],
     [
-        new Coins(500),
-        new Coins(530),
-        new Coins(560),
-        new Coins(590),
-        new Coins(620),
-        new Coins(650),
-        new Coins(680),
-        new Coins(710),
+        new Coins(500,250),
+        new Coins(540,250),
+        new Coins(580,250),
+        new Coins(620,250),
+        new Coins(660, 240),
+        new Coins(700, 230),
+        new Coins(740, 220),
+        new Coins(780, 210),
         new Coins(740),
         new Coins(2750)
     ],

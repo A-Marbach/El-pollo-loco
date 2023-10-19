@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
     acceleration = 1;
     energy = 100;
     lastHit = 0;
+    CHICKEN_DEAD = new Audio('audio/chicken-dead.mp3');
 
     offset = {
         top: 0,
@@ -100,9 +101,32 @@ class MovableObject extends DrawableObject {
         this.speedY = 15;
     }
 
-    // jumpFromChicken() {
-    //     this.speedY = 2;
-    // }
+    win() {
+
+        setInterval(() => {
+            setTimeout(() => {
+                world.level.endboss[0].y += 10;
+            }, "500");
+          if(world.level.endboss[0].y > 100){
+            this.youWin();
+          }
+        }, 10000 / 60);
+       
+    }
+
+    gameOver() {
+        setTimeout(() => {
+            let gameOver = document.getElementById('game-over');
+            gameOver.classList.remove('d-none');
+        }, "50");
+    }
+    
+    youWin(){
+        setTimeout(() => {
+            let win = document.getElementById('win');
+            win.classList.remove('d-none');
+        }, "50");
+    }
 
 }
 

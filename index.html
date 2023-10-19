@@ -40,13 +40,24 @@
 <body onload="init()">
 
     <h1>El Pollo Loco</h1>
-    <!-- <div class="start-screen">
+    <div class="d-none start-screen">
         <img src='img/9_intro_outro_screens/start/startscreen_1.png'>
         <div class="play-btn">
             <img  src="img/play.png">
             
         </div>
-    </div> -->
+    </div>
+    <div id="game-over" class="d-none end-screen-container">
+        <img class="grow" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
+        
+    </div>
+
+    <div id="win" class="d-none grow you-win-container">
+        <p >You Win this Game!
+            <button class="new-game-btn" onclick="startScreen()">New Game</button>
+        </p> 
+        
+    </div>
     <canvas  id="canvas" width="720" height="480"></canvas>
     <!-- <div class="mobile-btn">
          <div>

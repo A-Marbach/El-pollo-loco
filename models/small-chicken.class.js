@@ -37,6 +37,7 @@ class SmallChicken extends MovableObject{
 
             } else if (this.isDead) {
                 this.playAnimation(this.SMALL_CHICKEN_DEAD);
+                this.CHICKEN_DEAD.play();
                 // this.chicken_sound.play();
                 this.y = 380;
                 this.speed = 0;

@@ -13,7 +13,7 @@ body {
     font-family: 'Zabars', Arial, Helvetica, sans-serif;
 }
 
-/* .mobile-btn{
+.mobile-btn{
     display: flex;
     margin-top: -35px;
     justify-content: space-between;
@@ -25,32 +25,67 @@ body {
     margin-right: 5px;
     height: 30px;
     width: 30px;
-} */
+}
 
 .start-screen {
-    /* display: block; */
-    /* position: absolute;
-    left: 200px;
-    top: 117px; */
-    /* height: 480px;
-    width: 720px; */
-    /* z-index: 1; */
-    /* background-image: url('img/9_intro_outro_screens/start/startscreen_1.png'); */
-    /* object-fit: cover;
-    /* background-position: center; */
+    position: relative;
 } 
 
 .start-screen img {
     width: 720px;
     height: 480px;
     /* background-size: contain; */
+}
+.you-win-container{
+    position: absolute;
+    top: 118px;
+   
+}
+.new-game-btn {
+    position: absolute;
+    top: 300px;
+    font-size: 32px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #FFC521;
+    color: black;
+}
 
+.new-game-btn:hover{
+    cursor: pointer;
+    background-color: #ffd255;
+}
+.you-win-container p {
+    color: #FFDC03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 120px;
+    text-align: center;
+    z-index: 999;
+    width: 720px;
+    height: 480px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.end-screen-container{
+    position: absolute;
+    top: 118px;
+}
+
+.end-screen-container img {
+    display: flex;
+    z-index: 999;
+    width: 720px;
+    height: 480px;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .play-btn {
     position: absolute;
-    top:120px;
-    left: 450px;
+    top:0px;
+    left: 316px;
 }
 
 
@@ -89,7 +124,7 @@ canvas {
 @media only screen and (max-width: 720px) {
     canvas {
         width: 100%;
-        /* height: 50vh; */
+        height: 50vh;
     }
 }
 

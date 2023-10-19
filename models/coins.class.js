@@ -1,5 +1,5 @@
 class Coins extends MovableObject {
-  y = 200;
+  y = 250;
  x;
 
  height = 100;
@@ -23,6 +23,7 @@ class Coins extends MovableObject {
       
         this.loadImages(this.COINS_IMAGES);
         this.x = x;
+        this.y = y;
         // this.y = y;
         
         // this.y = + Math.random() *500;

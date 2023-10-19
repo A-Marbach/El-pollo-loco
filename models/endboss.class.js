@@ -6,7 +6,7 @@ class Endboss extends MovableObject {
     firstContact = false;
     energy = 100;
 
-
+    ENDBOSS_HURT = new Audio ('audio/endboss-hurt.mp3');
 
     IMAGES_WALKING = [
         'img/4_enemie_boss_chicken/2_alert/G5.png',
@@ -71,15 +71,23 @@ class Endboss extends MovableObject {
 
 
     }
+    
 
 
 
     animate() {
         setInterval(() => {
+            this.ENDBOSS_HURT.pause();
+
             if (this.endbossIsDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
+                this.ENDBOSS_HURT.play();
+                this.ENDBOSS_HURT.pause();
+
+                this.win();
             } else 
             if (this.isHurt()) {
+                this.ENDBOSS_HURT.play();
                 this.playAnimation(this.IMAGES_HURT);
             } else if (world.character.x > 4200 || this.firstContact) {
                 this.firstContact = true;
@@ -91,8 +99,7 @@ class Endboss extends MovableObject {
             
         }, 200);
 
-
-
+       
 
 
         // setInterval( () => {
