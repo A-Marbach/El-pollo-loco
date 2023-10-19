@@ -3,7 +3,7 @@ class Bottle extends MovableObject{
     height = 80;
     width = 60;
     x;
-
+    isBottleSplash = false;
     offset = {
         top: 10,
         left: 10,
@@ -48,7 +48,7 @@ class Bottle extends MovableObject{
     }
 
     animate(){
-        if(this.y < 100){
+        if(this.isBottleSplash){
             this.playanimation(this.IMAGES_SPLASH_BOTTLE);
         }
     }

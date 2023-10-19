@@ -13,7 +13,7 @@ body {
     font-family: 'Zabars', Arial, Helvetica, sans-serif;
 }
 
-.mobile-btn{
+/* .mobile-btn{
     display: flex;
     margin-top: -35px;
     justify-content: space-between;
@@ -25,23 +25,47 @@ body {
     margin-right: 5px;
     height: 30px;
     width: 30px;
-}
+} */
 
-/* .start-screen {
-    position: absolute;
-    left: 408px;
-    top: 117px;
-    height: 480px;
-    width: 720px;
-    z-index: 1;
-    background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
-    object-fit: cover;
-}
+.start-screen {
+    /* display: block; */
+    /* position: absolute;
+    left: 200px;
+    top: 117px; */
+    /* height: 480px;
+    width: 720px; */
+    /* z-index: 1; */
+    /* background-image: url('img/9_intro_outro_screens/start/startscreen_1.png'); */
+    /* object-fit: cover;
+    /* background-position: center; */
+} 
 
 .start-screen img {
-    width: 100%;
-    height: 100%;
-} */
+    width: 720px;
+    height: 480px;
+    /* background-size: contain; */
+
+}
+
+.play-btn {
+    position: absolute;
+    top:120px;
+    left: 450px;
+}
+
+
+.play-btn img{
+    width: 128px;
+    height: 128px;
+    background-color: #FFCC18;
+    
+}
+
+.play-btn img:hover{
+cursor: pointer;
+background-color: #ffdd62;
+}
+
 
 h1 {
     font-size: 50px;
@@ -49,11 +73,13 @@ h1 {
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-
+.d-none{
+    display: none;
+}
 
 canvas {
     background-color: black;
-    /* display: block; */
+    display: block;
     width: 720px;
     height: 480px;
     /* background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
@@ -63,7 +89,7 @@ canvas {
 @media only screen and (max-width: 720px) {
     canvas {
         width: 100%;
-        height: 50vh;
+        /* height: 50vh; */
     }
 }
 

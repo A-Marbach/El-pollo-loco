@@ -46,9 +46,6 @@ class Chicken extends MovableObject{
                     this.height = 0;
                     this.y = 900;
                 }, 500);
-                setTimeout(() => {
-                    this.isDead = false;
-                }, 800);
             }
 
         }, 120)
