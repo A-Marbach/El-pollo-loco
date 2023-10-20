@@ -9,7 +9,6 @@ class Cloud extends MovableObject{
     ];
     
    
-
     constructor(x){
         super().loadImage('img/5_background/layers/4_clouds/1.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.CLOUD_IMAGE);
@@ -24,13 +23,7 @@ class Cloud extends MovableObject{
         setInterval(() => {
             this.moveLeft();
         }, 1000 / 60);
-        
-    // setInterval( () => {
-    //    this.playAnimation(this.CLOUD_IMAGE);
-    // //    this.walking_sounds.play();
-    // }, 200);
     }
-
 }
 
     

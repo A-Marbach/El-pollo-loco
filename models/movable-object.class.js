@@ -14,6 +14,7 @@ class MovableObject extends DrawableObject {
         bottom: 0
     }
 
+
     applyGravity() {
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
@@ -22,6 +23,8 @@ class MovableObject extends DrawableObject {
             }
         }, 1000 / 25);
     }
+
+
     isAboveGround() {
         if (this instanceof ThrowableObject) {
             return true;
@@ -29,7 +32,6 @@ class MovableObject extends DrawableObject {
             return this.y < 220;
         }
     }
-
 
 
     hit() {
@@ -42,16 +44,17 @@ class MovableObject extends DrawableObject {
     }
 
 
-
     isHurt() {
         let timepassed = new Date().getTime() - this.lastHit;
         timepassed = timepassed / 1000;
         return timepassed < 1;
     }
 
+
     isDead() {
         return this.energy == 0;
     }
+
 
     endbossHit() {
         this.energy -= 34;
@@ -61,6 +64,7 @@ class MovableObject extends DrawableObject {
             this.lastHit = new Date().getTime();
         }
     }
+
 
     endbossIsDead() {
         return this.energy == 0;
@@ -74,12 +78,6 @@ class MovableObject extends DrawableObject {
             this.y < mo.y + mo.height
     }
 
-    // isColliding (mo) {
-    //     return  (this.x + this.width) >= mo.x && this.x <= (mo.x + mo.width) && 
-    //             (this.y + this.offsetY + this.height) >= mo.y &&
-    //             (this.y + this.offsetY) <= (mo.y + mo.height) &&
-    //             mo.onCollisionCourse;
-    // }
 
     moveRight() {
         this.x += this.speed;
@@ -89,6 +87,8 @@ class MovableObject extends DrawableObject {
     moveLeft() {
         this.x -= this.speed;
     }
+
+
     playAnimation(images) {
         let i = this.currentImage % images.length; // let i = 0, 1, 2, 3, 4, 5, 0
         let path = images[i];
@@ -101,8 +101,8 @@ class MovableObject extends DrawableObject {
         this.speedY = 15;
     }
 
-    win() {
 
+    win() {
         setInterval(() => {
             setTimeout(() => {
                 world.level.endboss[0].y += 10;
@@ -114,6 +114,7 @@ class MovableObject extends DrawableObject {
        
     }
 
+
     gameOver() {
         setTimeout(() => {
             let gameOver = document.getElementById('game-over');
@@ -121,12 +122,19 @@ class MovableObject extends DrawableObject {
         }, "50");
     }
     
+
     youWin(){
         setTimeout(() => {
             let win = document.getElementById('win');
             win.classList.remove('d-none');
         }, "50");
     }
-
 }
 
+
+// isColliding (mo) {
+    //     return  (this.x + this.width) >= mo.x && this.x <= (mo.x + mo.width) && 
+    //             (this.y + this.offsetY + this.height) >= mo.y &&
+    //             (this.y + this.offsetY) <= (mo.y + mo.height) &&
+    //             mo.onCollisionCourse;
+    // }

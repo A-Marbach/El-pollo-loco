@@ -15,8 +15,6 @@ class StatusBarCoins extends MovableObject {
     ];
 
 
-
-
     constructor() {
         super();
         this.loadImages(this.IMAGES_COINS);
@@ -27,16 +25,12 @@ class StatusBarCoins extends MovableObject {
 
 
     setPercentage() {
-
         let path = this.IMAGES_COINS[this.resolveImageIndex()];
         this.img = this.imageCache[path];
-
-
     }
 
 
     resolveImageIndex() {
-
         if (this.coins == 0) {
             return 0;
         } else if (this.coins <= 2) {

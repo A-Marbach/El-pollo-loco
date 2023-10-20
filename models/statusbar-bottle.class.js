@@ -2,7 +2,6 @@ class StatusBarBottle extends MovableObject {
     width = 200;
     height = 40;
     bottles = 0;
-
     IMAGES_BOTTLE = [
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/0.png',
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/20.png',
@@ -12,8 +11,6 @@ class StatusBarBottle extends MovableObject {
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/100.png'
 
     ];
-
-
 
 
     constructor() {
@@ -31,7 +28,6 @@ class StatusBarBottle extends MovableObject {
     }
 
     resolveImageIndex() {
-
         if (this.bottles == 0) {
             return 0;
         } else if (this.bottles <= 2) {
@@ -45,6 +41,5 @@ class StatusBarBottle extends MovableObject {
         } else {
             return 5;
         }
-
     }
 }

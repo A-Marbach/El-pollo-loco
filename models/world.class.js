@@ -7,15 +7,14 @@ class World {
     camera_x = 0;
     bottles = [];
     coins = [];
-
-
-
+    coin_sound = new Audio('audio/coin.mp3');
 
     statusBar = new Statusbar();
     statusBarEndboss = new StatusBarEndboss();
     statusBarBottle = new StatusBarBottle();
     statusBarCoins = new StatusBarCoins();
     throwableObjects = [];
+
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -25,6 +24,7 @@ class World {
         this.setWorld();
         this.run();
     }
+
 
     setWorld() {
         this.character.world = this;
@@ -37,6 +37,8 @@ class World {
             this.checkThrowObjects();
         }, 200);
     }
+
+
     //throw a bottle
     checkThrowObjects() {
         if (this.whenIHaveBottle()) {
@@ -47,6 +49,7 @@ class World {
             this.bottles.length--;
         }
     }
+
 
     whenIHaveBottle(){
         return this.keyboard.D && this.bottles.length > 0;
@@ -61,12 +64,9 @@ class World {
                     enemy.isDead = true;
                     console.log('yes');
                     bottle.isBottleSplash = true;
-                    // bottle.stopToMoveBottle = true;
                 }
             });
-
         });
-
         //Bottle collision with small chicken
         this.level.enemies_small.forEach((e) => {
             this.throwableObjects.forEach((bottle) => {
@@ -78,7 +78,6 @@ class World {
                 }
             });
         });
-
         //Bottle collision with endboss
         this.level.endboss.forEach((e) => {
             this.throwableObjects.forEach((bottle) => {
@@ -86,15 +85,12 @@ class World {
                     bottle.isBottleSplash = true;
                     e.isDead = true;
                     this.level.endboss[0].endbossHit();
-                    
                     this.statusBarEndboss.setPercentage(this.level.endboss[0].energy);
                     // bottle.isBottleSplash = true;
                     // bottle.stopToMoveBottle = true;
                 }
             });
         });
-
-
         //Character collects a bottle
         this.level.bottle.forEach((bottle) => {
             if (this.character.isColliding(bottle)) {
@@ -105,8 +101,6 @@ class World {
                 this.statusBarBottle.setPercentage();
             }
         });
-
-
         //Character collects a coin
         this.level.coins.forEach((coin) => {
             if (this.character.isColliding(coin)) {
@@ -114,10 +108,10 @@ class World {
                 this.statusBarCoins.coins++;
                 coin.x = 0;
                 coin.y = -1000;
+                this.coin_sound.play();
                 this.statusBarCoins.setPercentage();
             }
         });
-
         //Character jump on chicken
         this.level.enemies.forEach((enemy) => {
             if (!enemy.isDead && this.character.isColliding(enemy)) {
@@ -151,12 +145,7 @@ class World {
                 }
             }
         });
-
-
-
     }
-
-
 
 
     draw() {
@@ -167,15 +156,12 @@ class World {
 
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
-
-
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.enemies_small);
         this.addObjectsToMap(this.level.endboss);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.bottle);
         this.addObjectsToMap(this.throwableObjects);
-
 
 
         this.addToMap(this.character);
@@ -193,7 +179,6 @@ class World {
         this.ctx.translate(this.camera_x, 0);
 
 
-
         this.ctx.translate(-this.camera_x, 0);
 
 
@@ -201,10 +186,9 @@ class World {
         let self = this;
         requestAnimationFrame(function () {
             self.draw();
-
-
         });
     }
+
 
     addObjectsToMap(objects) {
         objects.forEach(o => {
@@ -219,12 +203,9 @@ class World {
         }
         mo.draw(this.ctx);
         mo.drawFrame(this.ctx);
-
-
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }
-
     }
 
 

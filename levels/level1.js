@@ -66,8 +66,8 @@ const level1 = new Level(
         new Coins(700, 230),
         new Coins(740, 220),
         new Coins(780, 210),
-        new Coins(740),
-        new Coins(2750)
+        new Coins(740, 200),
+        new Coins(2750, 190)
     ],
     [
         new Bottle(1400),
