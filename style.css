@@ -117,6 +117,7 @@ canvas {
     display: block;
     width: 720px;
     height: 480px;
+    border: 2px solid black;
     /* background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
     background-size: 720px 500px; */
 }

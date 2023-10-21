@@ -78,7 +78,9 @@ class World {
                 }
             });
         });
-        //Bottle collision with endboss
+
+
+           //Bottle collision with endboss
         this.level.endboss.forEach((e) => {
             this.throwableObjects.forEach((bottle) => {
                 if (bottle.isColliding(e)) {
@@ -91,9 +93,11 @@ class World {
                 }
             });
         });
+
+
         //Character collects a bottle
         this.level.bottle.forEach((bottle) => {
-            if (this.character.isColliding(bottle)) {
+            if (this.character.isCollidingWithBottleOrCoin(bottle)) {
                 this.bottles.push(1);
                 this.statusBarBottle.bottles++;
                 bottle.x = 0;
@@ -101,9 +105,11 @@ class World {
                 this.statusBarBottle.setPercentage();
             }
         });
+
+
         //Character collects a coin
         this.level.coins.forEach((coin) => {
-            if (this.character.isColliding(coin)) {
+            if (this.character.isCollidingWithBottleOrCoin(coin)) {
                 this.coins.push(1);
                 this.statusBarCoins.coins++;
                 coin.x = 0;
@@ -112,6 +118,8 @@ class World {
                 this.statusBarCoins.setPercentage();
             }
         });
+
+
         //Character jump on chicken
         this.level.enemies.forEach((enemy) => {
             if (!enemy.isDead && this.character.isColliding(enemy)) {
@@ -123,6 +131,8 @@ class World {
                 }
             }
         });
+
+
         //Character jump on small chicken
         this.level.enemies_small.forEach((enemy) => {
             if (!enemy.isDead && this.character.isColliding(enemy)) {
@@ -134,6 +144,8 @@ class World {
                 }
             }
         });
+
+
         //Character collision with enemies and hit the Character
         this.level.endboss.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
@@ -156,6 +168,8 @@ class World {
 
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
+
+
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.enemies_small);
         this.addObjectsToMap(this.level.endboss);
@@ -203,6 +217,8 @@ class World {
         }
         mo.draw(this.ctx);
         mo.drawFrame(this.ctx);
+
+
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }

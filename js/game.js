@@ -11,9 +11,13 @@ function startScreen() {
 
 
 function init() {
+    initLevel();
+    document.getElementById('start-screen').classList.add('d-none');
+    document.getElementById('canvas').classList.remove('d-none');
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     console.log('My Character is,', world.character);
+    
 }
 
 

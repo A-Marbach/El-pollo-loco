@@ -6,10 +6,10 @@ class Character extends MovableObject {
     timer = 0;
 
     offset = {
-        top: 80,
-        left: 10,
-        right: -20,
-        bottom: -80
+        top: 120,
+        left: 40,
+        right: 30,  
+        bottom: 30
     }
 
 
@@ -92,11 +92,11 @@ class Character extends MovableObject {
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.moveRight();
                 this.otherDirection = false;
-                // this.walking_sounds.play();
+                this.walking_sounds.play();
             } if (this.world.keyboard.LEFT && this.x > 0) {
                 this.moveLeft();
                 this.otherDirection = true;
-                // this.walking_sounds.play();
+                this.walking_sounds.play();
             } if (this.world.keyboard.JUMP && !this.isAboveGround()) {
                 this.jump();
                 this.jumping_sounds.play();
