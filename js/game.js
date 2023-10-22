@@ -37,7 +37,12 @@ function muteSound() {
     }
 }
 
-function openFullscreen() {
+function fullscreen(){
+    let fullscreen = document.getElementById('fullscreen');
+    openFullscreen(fullscreen);
+}
+
+function openFullscreen(elem) {
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.webkitRequestFullscreen) { /* Safari */
