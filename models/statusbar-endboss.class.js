@@ -2,7 +2,7 @@ class StatusBarEndboss extends DrawableObject {
     width = 200;
     height = 60;
     x = 120;
-    y = 450;
+    y = 300;
     percentage = 100;
     IMAGES_HEALTH_ENDBOSS = [
         'img/7_statusbars/1_statusbar/2_statusbar_health/green/0.png',
@@ -16,7 +16,7 @@ class StatusBarEndboss extends DrawableObject {
         super();
         this.loadImages(this.IMAGES_HEALTH_ENDBOSS);
         this.x = 500;
-        this.y = 0;
+        this.y = 20;
         this.setPercentage(100);
     }
 

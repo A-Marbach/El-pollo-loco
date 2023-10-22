@@ -42,14 +42,13 @@
     <div class="canvas-container">
         <div id="start-screen" class="start-screen">
             <img src='img/9_intro_outro_screens/start/startscreen_1.png'>
-                <button onclick="init()">Play</button>
-                
+            <button onclick="init()">Play</button>
         </div>
 
         <div class="fullscreen-container">
             <div class="info-container">
                 <div id="info">
-                    <img class="cursor opacity"src="img/info.png">
+                    <img class="cursor opacity" src="img/info.png">
                 </div>
                 <div>
                     <img id="mute" onclick="muteSound()" class="ton cursor" src="img/ton-an.png">
@@ -57,48 +56,47 @@
                 </div>
             </div>
         </div>
+        <div id="game-over" class=" d-none end-screen-container">
+            <img class="grow" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
+            <button class="new-game-btn" onclick="init()">New Game</button>
+            <button class="option-btn" onclick="startScreen()">Option</button>
+        </div>
+
+        <div id="win" class="d-none you-win-container">
+            <p>You Win this Game!
+                <button class="new-game-btn" onclick="init()">New Game</button>
+                <button class="option-btn" onclick="startScreen()">Option</button>
+            </p>
+        </div>
+
+        <div class=" d-none mobile-btn">
+            <div>
+                <div>
+                    <img src="img/pfeil-links.png">
+                    <img src="img/pfeil-rechts.png">
+                </div>
+                <div>
+                    <img src="img/pfeil-oben.png">
+                    <img src="img/wurf.png">
+                </div>
+            </div>
+        </div>
+
         <canvas class="d-none" id="canvas" width="720" height="480"></canvas>
     </div>
 
 
-    <!-- <div id="start-screen" class="start-screen">
-            <img src='img/9_intro_outro_screens/start/startscreen_1.png'>
-            <div class="play-btn">
-                <img onclick="init()" src="img/play.png">
-                
-            </div>
-        </div> -->
-
-
-    <!-- <div id="game-over" class="d-none end-screen-container">
-        <img class="grow" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
-        <button class="new-game-btn" onclick="init()">New Game</button>
-    </div>
-
-    <div id="win" class="d-none grow you-win-container">
-        <p >You Win this Game!
-            <button class="new-game-btn" onclick="init()">New Game</button>
-        </p> 
-    </div> -->
 
 
 
-    <!-- <div class="fullscreen-container">
-        <img src="img/vollbild.png">
-    </div> -->
 
 
-    <!-- <div class="mobile-btn">
-         <div>
-            <img src="img/pfeil-links.png" >
-            <img src="img/pfeil-rechts.png" >
-        </div>
-        <div>
-            <img src="img/pfeil-oben.png" >
-            <img src="img/wurf.png" >
 
-        </div>
-    </div>  -->
+
+
+
+
+
 </body>
 
 </html>

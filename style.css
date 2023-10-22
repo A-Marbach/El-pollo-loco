@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('img/bgg.webp');
+    background-image: url('img/pexel.jpg');
     background-position: center;
     background-size: cover;
     object-fit: cover;
@@ -13,54 +13,83 @@ body {
     font-family: 'Zabars', Arial, Helvetica, sans-serif;
 }
 
-.canvas-container{
+.canvas-container {
     position: relative;
     width: 720px;
     height: 480px;
 }
 
-.mobile-btn{
-    display: flex;
-    margin-top: -35px;
-    justify-content: space-between;
-    width: 720px;
+.mobile-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-.mobile-btn img{
+.mobile-btn img {
+    padding-left: 8px;
+    padding-right: 8px;
     margin-left: 5px;
     margin-right: 5px;
     height: 30px;
     width: 30px;
 }
 
+.mobile-btn div{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+
 .start-screen {
     position: absolute;
-} 
+}
 
 .start-screen img {
     width: 720px;
     height: 480px;
     /* background-size: contain; */
 }
-.you-win-container{
+
+.you-win-container {
     position: absolute;
-    top: 118px;
-   
+    background: rgba(0, 0, 0, 0.3);
+    width: 720px;
+    height: 480px;
+
 }
-.new-game-btn {
+
+.option-btn {
     position: absolute;
-    top: 300px;
-    font-size: 32px;
+    top: 350px;
     padding: 16px;
+    left: 400px;
+    font-size: 28px;
     border-radius: 12px;
     background-color: #FFC521;
     color: black;
 }
 
-.new-game-btn:hover{
+.option-btn:hover {
     cursor: pointer;
     background-color: #ffd255;
 }
+
+.new-game-btn {
+    position: absolute;
+    top: 350px;
+    left: 170px;
+    padding: 16px;
+    font-size: 28px;
+    border-radius: 12px;
+    background-color: #FFC521;
+    color: black;
+}
+
+.new-game-btn:hover {
+    cursor: pointer;
+    background-color: #ffd255;
+}
+
 .you-win-container p {
     color: #FFDC03;
     display: flex;
@@ -75,62 +104,65 @@ body {
     background: rgba(0, 0, 0, 0.3);
 }
 
-.fullscreen-container{
+.fullscreen-container {
     position: absolute;
-   width: 100%;
+    width: 100%;
 }
 
-.fullscreen-container img{
-width: 28px;
-height: 28px;
-padding: 8px;
+.fullscreen-container img {
+    width: 28px;
+    height: 28px;
+    padding: 8px;
 }
 
-.info-container{
+.info-container {
     display: flex;
     justify-content: space-between;
 }
 
-.cursor{
+.cursor {
     cursor: pointer;
 }
 
-.end-screen-container{
+.end-screen-container {
     position: absolute;
-    top: 118px;
+    background: rgba(0, 0, 0, 0.3);
+    width: 720px;
+    height: 480px;
 }
 
 .end-screen-container img {
     display: flex;
     z-index: 999;
-    width: 720px;
-    height: 480px;
-    background: rgba(0, 0, 0, 0.3);
-}
-.ton{
-    width: 32px !important;
-    height: 32px!important;
+    width: 100%;
+    height: 100%;
+
 }
 
-.info{
+.ton {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.info {
     position: absolute;
     top: 0;
 }
 
 
-button{
+button {
     position: absolute;
     top: 5%;
-    left: 47%;
+    left: 43%;
     font-size: 32px;
     cursor: pointer;
     background-color: #FFD40E;
-    padding: 8px;
+    padding: 16px;
     border-radius: 30%;
 }
 
-button:hover{
-   
+button:hover {
+
     background-color: #FFC423;
 }
 
@@ -142,7 +174,7 @@ h1 {
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
@@ -151,9 +183,7 @@ canvas {
     display: block;
     width: 720px;
     height: 480px;
-    border: 2px solid black;
-    /* background-image: url('img/9_intro_outro_screens/start/startscreen_2.png');
-    background-size: 720px 500px; */
+    /* border: 1px solid black; */
 }
 
 @media only screen and (max-width: 720px) {
@@ -161,17 +191,38 @@ canvas {
         width: 100%;
         height: 50vh;
     }
-    .you-win-container{
+
+    .you-win-container {
         width: 100%;
     }
-    .you-win-container p{
-        
+
+    .you-win-container p {
         height: 50vh;
     }
 
-    .new-game-btn{
+    .end-screen-container{
+        height: 50vh;
+    }
+
+    .new-game-btn {
         top: 220px;
     }
+    .option-btn{
+        top: 220px;
+    }
+
+    .canvas-container{
+        height: 50vh;
+    }
+
+    .start-screen{
+        height: 50vh;
+    }
+
+    .start-screen img{
+        height: 50vh;
+    }
+
 }
 
 @media only screen and (max-height: 480px) {

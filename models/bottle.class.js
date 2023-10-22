@@ -30,12 +30,13 @@ class Bottle extends MovableObject {
     ]
 
 
-    constructor(x) {
+    constructor(x, y) {
         super().loadImage('img/6_salsa_bottle/1_salsa_bottle_on_ground.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.IMAGES_ROTATION_BOTTLE);
         this.loadImages(this.IMAGES_ON_GROUND);
         this.loadImages(this.IMAGES_SPLASH_BOTTLE);
         this.x = x;
+        this.y = y;
         this.animate();
     }
 
