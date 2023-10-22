@@ -59,7 +59,7 @@ function initLevel() {
             new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719 * 6)
         ],
         [
-            new Coins(300, 170),
+            new Coins(300, 160),
             new Coins(600, 250),
             new Coins(1100, 200),
             new Coins(1300, 240),

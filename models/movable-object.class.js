@@ -6,7 +6,8 @@ class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
     CHICKEN_DEAD = new Audio('audio/chicken-dead.mp3');
-
+    win_sound = new Audio('audio/win.mp3');
+    lose_sound = new Audio('audio/lose.mp3');
     offset = {
         top: 0,
         left: 0,
@@ -21,9 +22,12 @@ class MovableObject extends DrawableObject {
                 this.y -= this.speedY;
                 this.speedY -= this.acceleration;
             }
-        }, 1000 / 25);
+        }, 1000 / 30);
     }
 
+    clearAllIntervals() {
+        for (let i = 1; i < 9999; i++) window.clearInterval(i);
+    }
 
     isAboveGround() {
         if (this instanceof ThrowableObject) {
@@ -75,7 +79,7 @@ class MovableObject extends DrawableObject {
         return this.x + this.width > mo.x &&
             this.y + this.height > mo.y &&
             this.x < mo.x &&
-            this.y < mo.y + mo.height 
+            this.y < mo.y + mo.height
     }
 
 
@@ -85,8 +89,8 @@ class MovableObject extends DrawableObject {
             this.x + this.offset.left < mo.x + mo.width - mo.offset.right &&
             this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom
     }
-   
-    
+
+
 
     moveRight() {
         this.x += this.speed;
@@ -112,30 +116,36 @@ class MovableObject extends DrawableObject {
 
 
     win() {
+        // this.ENDBOSS_HURT.play();
+        this.win_sound.play(); 
         setInterval(() => {
             setTimeout(() => {
                 world.level.endboss[0].y += 10;
             }, "500");
-          if(world.level.endboss[0].y > 100){
-            this.youWin();
-          }
+            if (world.level.endboss[0].y > 500) {
+                this.youWin();
+
+            }
         }, 10000 / 60);
-       
+
     }
 
 
     gameOver() {
+        this.lose_sound.play();
         setTimeout(() => {
             let gameOver = document.getElementById('game-over');
             gameOver.classList.remove('d-none');
-        }, "50");
+            this.clearAllIntervals();
+        }, "1500");
     }
-    
 
-    youWin(){
+
+    youWin() {
         setTimeout(() => {
             let win = document.getElementById('win');
             win.classList.remove('d-none');
+            this.clearAllIntervals();
         }, "50");
     }
 }

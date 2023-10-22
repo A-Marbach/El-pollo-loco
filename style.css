@@ -1,5 +1,5 @@
 body {
-    position: relative;
+    /* position: relative; */
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -11,6 +11,12 @@ body {
     object-fit: cover;
     /* margin-top: 20px; */
     font-family: 'Zabars', Arial, Helvetica, sans-serif;
+}
+
+.canvas-container{
+    position: relative;
+    width: 720px;
+    height: 480px;
 }
 
 .mobile-btn{
@@ -28,7 +34,7 @@ body {
 }
 
 .start-screen {
-    position: relative;
+    position: absolute;
 } 
 
 .start-screen img {
@@ -63,10 +69,30 @@ body {
     margin: 0;
     font-size: 120px;
     text-align: center;
-    z-index: 999;
+    z-index: 9;
     width: 720px;
     height: 480px;
     background: rgba(0, 0, 0, 0.3);
+}
+
+.fullscreen-container{
+    position: absolute;
+   width: 100%;
+}
+
+.fullscreen-container img{
+width: 28px;
+height: 28px;
+padding: 8px;
+}
+
+.info-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cursor{
+    cursor: pointer;
 }
 
 .end-screen-container{
@@ -81,25 +107,33 @@ body {
     height: 480px;
     background: rgba(0, 0, 0, 0.3);
 }
+.ton{
+    width: 32px !important;
+    height: 32px!important;
+}
 
-.play-btn {
+.info{
     position: absolute;
-    top:0px;
-    left: 316px;
+    top: 0;
 }
 
 
-.play-btn img{
-    width: 128px;
-    height: 128px;
-    background-color: #FFCC18;
-    
+button{
+    position: absolute;
+    top: 5%;
+    left: 47%;
+    font-size: 32px;
+    cursor: pointer;
+    background-color: #FFD40E;
+    padding: 8px;
+    border-radius: 30%;
 }
 
-.play-btn img:hover{
-cursor: pointer;
-background-color: #ffd43a;
+button:hover{
+   
+    background-color: #FFC423;
 }
+
 
 
 h1 {
@@ -126,6 +160,17 @@ canvas {
     canvas {
         width: 100%;
         height: 50vh;
+    }
+    .you-win-container{
+        width: 100%;
+    }
+    .you-win-container p{
+        
+        height: 50vh;
+    }
+
+    .new-game-btn{
+        top: 220px;
     }
 }
 

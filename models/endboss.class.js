@@ -67,12 +67,12 @@ class Endboss extends MovableObject {
             this.ENDBOSS_HURT.pause();
             if (this.endbossIsDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
-                this.ENDBOSS_HURT.play();
-                this.ENDBOSS_HURT.pause();
+                
                 this.win();
             } else
                 if (this.isHurt()) {
                     this.ENDBOSS_HURT.play();
+                    this.CHICKEN_DEAD.play();
                     this.playAnimation(this.IMAGES_HURT);
                 } else if (world.character.x > 4200 || this.firstContact) {
                     this.firstContact = true;
