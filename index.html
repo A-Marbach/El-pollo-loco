@@ -48,7 +48,7 @@
         <div class="fullscreen-container">
             <div class="info-container">
                 <div id="info">
-                    <img class="cursor opacity" src="img/info.png">
+                    <img onclick="openStory()" class="cursor opacity" src="img/info.png">
                 </div>
                 <div>
                     <img id="mute" onclick="muteSound()" class="ton cursor" src="img/ton-an.png">
@@ -62,6 +62,39 @@
             <button class="option-btn" onclick="startScreen()">Option</button>
         </div>
 
+        <div id="info-container" class="d-none story-container">
+            <img onclick="closeStory()" src="img/x.png">
+            <p class="explanation">Pepe Peligroso is stranded in Mexico City. He is surrounded by hungry chickens that
+                are lying in wait for him. Pepe is looking for tobacco bottles to fight the final boss. As soon as Pepe
+                has defeated the final boss, he can go home again</p>
+            <h2>Key assignment</h2>
+
+            <div class="flex">
+                <div class="width-50">
+                    <div class="flex">
+                        <p>LEFT:</p>
+                        <img src="img/pfeil-links.png">
+                    </div>
+                    <div class="flex">
+                        <p>RIGHT:</p>
+                        <img src="img/pfeil-rechts.png">
+                    </div>
+                </div>
+
+
+                <div class="width-50">
+                    <div class="flex">
+                        <p>JUMP:</p>
+                        <p>SPACE</p>
+                    </div>
+                    <div class="flex">
+                        <p>Throw:</p>
+                        <p>D</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="win" class="d-none you-win-container">
             <p>You Win this Game!
                 <button class="new-game-btn" onclick="init()">New Game</button>
@@ -69,15 +102,15 @@
             </p>
         </div>
 
-        <div class=" d-none mobile-btn">
+        <div class="d-none mobile-btn">
             <div>
                 <div>
-                    <img src="img/pfeil-links.png">
-                    <img src="img/pfeil-rechts.png">
+                    <img id="btn-left" src="img/pfeil-links.png">
+                    <img id="btn-right" src="img/pfeil-rechts.png">
                 </div>
                 <div>
-                    <img src="img/pfeil-oben.png">
-                    <img src="img/wurf.png">
+                    <img id="btn-jump" src="img/pfeil-oben.png">
+                    <img id="btn-throw" src="img/wurf.png">
                 </div>
             </div>
         </div>
