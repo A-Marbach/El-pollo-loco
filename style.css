@@ -5,10 +5,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('img/pexel.jpg');
+    background-image: url('img/bg-new.jpg');
     background-position: center;
     background-size: cover;
     object-fit: cover;
+    height: 100vh;
+    
 }
 
 h1{
@@ -18,8 +20,10 @@ h1{
 .story-container{
     position: absolute;
     width: 100%;
-    height: 100%;
-    background-color: white;
+    height: 480px;
+    background-image: url('img/bg-new.jpg');
+    
+   
     
 }
 
@@ -50,7 +54,23 @@ h1{
 
 .flex{
     display: flex;
+    padding-left: 48px;
+    
 }
+
+.flex p{
+    margin: 0;
+    
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+   justify-content: end;
+}
+
+
+
 
 h2{
     text-align: center;
@@ -58,14 +78,12 @@ h2{
     text-decoration: underline;
 }
 
-.width-50{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    padding-left: 64px;
-}
 
+
+
+.flex div{
+    font-weight: bold;
+}
 .canvas-container {
     position: relative;
     width: 720px;
@@ -77,6 +95,7 @@ h2{
     bottom: 0;
     width: 100%;
     z-index: 999;
+    display: none;
 }
 
 .mobile-btn img {
@@ -93,10 +112,41 @@ h2{
     justify-content: space-between;
     padding-bottom: 8px;
 }
+.rotate-your-phone-container{
+    position: absolute;
+    background-color: black;
+    display: none;
+    z-index: 999;
+}
+
+.rotate-your-phone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 720px;
+    height: 480px;
+    font-size: 64px;
+    color: white;
+    font-family: 'Zabars', Arial, Helvetica, sans-serif;
+}
+
+.rotate-your-phone p{
+    text-align: center;
+}
+
+.rotate-your-phone img{
+    width: 128px;
+    height: 128px;
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+}
 
 .start-screen {
     position: absolute;
 }
+
+
 
 .start-screen img {
     width: 720px;
@@ -150,7 +200,7 @@ h2{
     justify-content: center;
     align-items: center;
     margin: 0;
-    font-size: 120px;
+    font-size: 84px;
     text-align: center;
     z-index: 9;
     width: 720px;
@@ -240,61 +290,114 @@ canvas {
     /* border: 1px solid black; */
 }
 
+
 @media only screen and (max-width: 720px) {
+
+    
     canvas {
         width: 100%;
-        height: 50vh;
-    }
-
-    .you-win-container {
-        width: 100%;
-    }
-
-    .you-win-container p {
-        height: 50vh;
-        width: 100%;
-    }
-
-    .end-screen-container{
-        height: 50vh;
-        width: 100%;
-    }
-
-    .new-game-btn {
-        top: 220px;
-    }
-    .option-btn{
-        top: 220px;
     }
 
     .canvas-container{
-        height: 50vh;
         width: 100%;
     }
 
-    .start-screen{
-        height: 50vh;
+    .rotate-your-phone-container{
         width: 100%;
     }
 
-    .start-screen img{
-        height: 50vh;
+    .rotate-your-phone{
         width: 100%;
-    }
-
-}
-
-@media only screen and (max-height: 480px) {
-    canvas {
-        height: 100vh;
-        width: 100vw;
     }
 
     h1 {
         display: none;
     }
 
-    body {
-        background-image: none;
+    .start-screen{
+        
+        width: 100%;
     }
+
+    .start-screen img{
+        
+        width: 100%;
+    }
+
+    
+    .you-win-container {
+        width: 100%;
+    }
+
+    .you-win-container p {
+        width: 100%;
+    }
+
+    .end-screen-container{
+       
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .rotate-your-phone-container{
+        display: block;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100vh;
+        width: 100%;
+    }
+
+    .story-container p{
+        font-size: 28px;
+    }
+    h1 {
+        display: none;
+    }
+
+    .mobile-btn{
+        display: block;
+    }
+
+    .canvas-container{
+        height: 100vh;
+    }
+
+    .start-screen{
+        margin: 0;
+        height: 100vh;
+    }
+    .start-screen img{
+        height: 100vh;
+    }
+    .you-win-container{
+        height: 100vh;
+    }
+    .you-win-container p {
+        height: 100%;
+    }
+
+    .end-screen-container{
+        height: 100vh;
+    }
+
+    .new-game-btn{
+        top: 280px;
+    }
+
+    .option-btn{
+        top: 280px;
+    }
+    
+
+    body {
+       height: 100vh;
+    } 
+
+    
+
+
 }

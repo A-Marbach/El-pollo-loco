@@ -42,24 +42,31 @@
     <div id="fullscreen" class="canvas-container">
         <div id="start-screen" class="start-screen">
             <img src='img/9_intro_outro_screens/start/startscreen_1.png'>
-            <button onclick="init()">Play</button>
+            <button id="btn" onclick="init()">Play</button>
         </div>
-
+        <div id="rotate" class="rotate-your-phone-container">
+            <div class="rotate-your-phone">
+                <p>Please rotate your Phone</p>
+                <img src="img/rotate.png">
+            </div>
+        </div>
         <div class="fullscreen-container">
-            <div class="info-container">
+            <div id="nav-bar" class="info-container">
                 <div id="info">
                     <img onclick="openStory()" class="cursor opacity" src="img/info.png">
                 </div>
                 <div>
-                    <img id="mute" onclick="muteSound()" class="ton cursor" src="img/ton-an.png">
-                    <img class="cursor" onclick="fullscreen()" src="img/vollbild.png">
+                    <!-- <img id="mute" onclick="muteSound()" class="ton cursor" src="img/ton-an.png"> -->
+                    <!-- <img class="cursor" onclick="fullscreen()" src="img/vollbild.png"> -->
                 </div>
             </div>
         </div>
         <div id="game-over" class=" d-none end-screen-container">
             <img class="grow" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
+
             <button class="new-game-btn" onclick="init()">New Game</button>
             <button class="option-btn" onclick="startScreen()">Option</button>
+
         </div>
 
         <div id="info-container" class="d-none story-container">
@@ -70,30 +77,33 @@
             <h2>Key assignment</h2>
 
             <div class="flex">
-                <div class="width-50">
-                    <div class="flex">
+                <div class="flex">
+                    <div>
                         <p>LEFT:</p>
-                        <img src="img/pfeil-links.png">
-                    </div>
-                    <div class="flex">
                         <p>RIGHT:</p>
+
+                    </div>
+                    <div class="column">
+                        <img src="img/pfeil-links.png">
                         <img src="img/pfeil-rechts.png">
                     </div>
                 </div>
 
-
-                <div class="width-50">
-                    <div class="flex">
+                <div class="flex">
+                    <div>
                         <p>JUMP:</p>
-                        <p>SPACE</p>
+                        <p>THROW:</p>
+
                     </div>
-                    <div class="flex">
-                        <p>Throw:</p>
+                    <div class="column">
+                        <p>Space</p>
                         <p>D</p>
                     </div>
                 </div>
             </div>
+
         </div>
+
 
         <div id="win" class="d-none you-win-container">
             <p>You Win this Game!
@@ -101,21 +111,21 @@
                 <button class="option-btn" onclick="startScreen()">Option</button>
             </p>
         </div>
-
-        <div class="d-none mobile-btn">
-            <div>
+        <div id="mobile-keys" class="d-none">
+            <div id="mobile-btn" class=" mobile-btn">
                 <div>
-                    <img id="btn-left" src="img/pfeil-links.png">
-                    <img id="btn-right" src="img/pfeil-rechts.png">
-                </div>
-                <div>
-                    <img id="btn-jump" src="img/pfeil-oben.png">
-                    <img id="btn-throw" src="img/wurf.png">
+                    <div>
+                        <img id="btn-left" src="img/pfeil-links.png">
+                        <img id="btn-right" src="img/pfeil-rechts.png">
+                    </div>
+                    <div>
+                        <img id="btn-jump" src="img/pfeil-oben.png">
+                        <img id="btn-throw" src="img/wurf.png">
+                    </div>
                 </div>
             </div>
+            <canvas  id="canvas" width="720" height="480"></canvas>
         </div>
-
-        <canvas class="d-none" id="canvas" width="720" height="480"></canvas>
     </div>
 
 
@@ -127,7 +137,7 @@
 
 
 
-
+    <!-- © <a href='https://de.123rf.com/profile_virtosmedia'>virtosmedia</a>, <a href='https://www.123rf.com/free-images/'>123RF Free Images</a> -->
 
 
 </body>

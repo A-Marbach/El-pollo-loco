@@ -44,6 +44,8 @@ class Bottle extends MovableObject {
     animate() {
         if (this.isBottleSplash) {
             this.playanimation(this.IMAGES_SPLASH_BOTTLE);
+            
+                
         }
     }
 }

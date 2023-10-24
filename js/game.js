@@ -7,7 +7,7 @@ function startScreen() {
     document.getElementById('start-screen').classList.remove('d-none');
     document.getElementById('game-over').classList.add('d-none');
     document.getElementById('win').classList.add('d-none');
-  
+    document.getElementById('mobile-keys').classList.add('d-none');
 }
 
 
@@ -17,28 +17,16 @@ function init() {
   
     document.getElementById('win').classList.add('d-none');
     document.getElementById('game-over').classList.add('d-none');
-    document.getElementById('canvas').classList.remove('d-none');
+    document.getElementById('mobile-keys').classList.remove('d-none');
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
 }
 
-function muteSound() {
-    let sound = document.getElementById('mute');
-    if (!sound_is_mute) {
-        sound_is_mute = true;
-        sound.src = 'img/ton-aus.png';
-    document.getElementById('mute').style.opacity = 0.2;
 
-    } else if(sound_is_mute){
-        sound.src = 'img/ton-an.png';
-        sound_is_mute = false;
-    document.getElementById('mute').style.opacity = 1;
-
-    }
-}
 
 function fullscreen(){
     let fullscreen = document.getElementById('fullscreen');
+    document.getElementById('start-screen').style.width = '100%';
     openFullscreen(fullscreen);
 }
 
@@ -64,12 +52,33 @@ function openFullscreen(elem) {
 
   function closeStory(){
     document.getElementById('info-container').classList.add('d-none');
+    document.getElementById('btn').classList.remove('d-none');
+    document.getElementById('nav-bar').classList.remove('d-none');
+    document.getElementById('start-screen').classList.remove('blur');
+    document.getElementById('mobile-btn').style.opacity= 1;
   }
 
   function openStory(){
     document.getElementById('info-container').classList.remove('d-none');
-
+    document.getElementById('btn').classList.add('d-none');
+    document.getElementById('nav-bar').classList.add('d-none');
+    document.getElementById('start-screen').classList.add('blur');
+    document.getElementById('mobile-btn').style.opacity= 0;
   }
+
+  // function muteSound() {
+//     let sound = document.getElementById('mute');
+//     if (!sound_is_mute) {
+//         sound_is_mute = true;
+//         sound.src = 'img/ton-aus.png';
+//     document.getElementById('mute').style.opacity = 0.2;
+
+//     } else if(sound_is_mute){
+//         sound.src = 'img/ton-an.png';
+//         sound_is_mute = false;
+//     document.getElementById('mute').style.opacity = 1;
+//     }
+// }
 
 
 
