@@ -30,6 +30,12 @@ class Bottle extends MovableObject {
     ]
 
 
+    /**
+    * this constructor pain and animation the bottle
+    * 
+    * @param {number} x this is the x coordinate of the bottle
+    * @param {number} y this is the y coordinate of the bottle
+    */
     constructor(x, y) {
         super().loadImage('img/6_salsa_bottle/1_salsa_bottle_on_ground.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.IMAGES_ROTATION_BOTTLE);
@@ -40,7 +46,11 @@ class Bottle extends MovableObject {
         this.animate();
     }
 
-
+    /**
+     * this function animate the bottle
+     * 
+     * 
+     */
     animate() {
         if (this.isBottleSplash) {
             this.playanimation(this.IMAGES_SPLASH_BOTTLE);

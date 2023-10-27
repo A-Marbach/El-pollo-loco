@@ -9,6 +9,17 @@ class Level {
     endboss;
 
 
+    /**
+     * this constructor connects the respective variables with 'this' so that you can use them everywhere
+     * 
+     * @param {string} enemies 
+     * @param {string} clouds 
+     * @param {string} backgroundObjects 
+     * @param {string} coins 
+     * @param {string} bottle 
+     * @param {string} enemies_small 
+     * @param {string} endboss 
+     */
     constructor(enemies, clouds, backgroundObjects, coins, bottle, enemies_small, endboss) {
         this.enemies = enemies;
         this.clouds = clouds;

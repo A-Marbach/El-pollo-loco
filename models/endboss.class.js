@@ -53,6 +53,11 @@ class Endboss extends MovableObject {
     ];
 
 
+    /**
+     * this constructor pain and animation the endboss
+     * 
+     * 
+     */
     constructor() {
         super().loadImage(this.IMAGES_WALKING[0]); // super()= von movableObject das Bild laden
         this.loadImages(this.IMAGES_WALKING);
@@ -65,7 +70,11 @@ class Endboss extends MovableObject {
         this.animate();
     }
 
-
+    /**
+     * this function checked situation of the endboss
+     * 
+     * 
+     */
     animate() {
         setInterval(() => {
             this.ENDBOSS_HURT.pause();
@@ -81,28 +90,40 @@ class Endboss extends MovableObject {
         }, 200);
     }
 
+    /**
+     * thisfunction checked the endboss is hurt or not 
+     * 
+     *
+     */
     isEndbossHurt() {
         return this.isHurt();
     }
 
+    /**
+     * this function play animation if the endboss is hurt
+     * 
+     * 
+     */
     endbossHurt() {
-    // if(world.level.bottle.dontMakeDamageMore == true){
-    //     console.log('asdasd');
-    //     this.bottle.x = 9000;
-    //     this.bottle.y = 9000;
-    //     this.bottle.width = 0;
-    //     this.bottle.height = 0;
-    //     world.level.bottle.dontMakeDamageMore = false;
-    // }
         this.ENDBOSS_HURT.play();
         this.CHICKEN_DEAD.play();
         this.playAnimation(this.IMAGES_HURT);
     }
 
+    /**
+     * this function checked first contact to the endboss, after that the endboss attack the character and move left 
+     *
+     * 
+     */
     endbossAttackCharacter() {
         return world.character.x > 4200 || this.firstContact;
     }
 
+     /**
+     * this function move to left
+     * 
+     * 
+     */
     moveLeft() {
         this.firstContact = true;
         this.playAnimation(this.IMAGES_ATTACK);

@@ -20,15 +20,22 @@ class StatusBarEndboss extends DrawableObject {
         this.setPercentage(100);
     }
 
-    //This function loads the appropriate image for the status bar
+    /**
+     * This function loads the appropriate image for the status bar
+     * 
+     * @param {number} percentage percent of the status bar
+     */
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.IMAGES_HEALTH_ENDBOSS[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
-
-     //This function calculates which image is the right one for the status bar
+    /**
+     * This function calculates which image is the right one for the status bar
+     * 
+     * 
+     */
     resolveImageIndex() {
         if (this.percentage == 100) {
             return 3;

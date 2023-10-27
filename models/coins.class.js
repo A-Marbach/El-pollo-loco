@@ -14,7 +14,13 @@ class Coins extends MovableObject {
         'img/8_coin/coin_2.png',
     ];
 
-    
+
+    /**
+    * this constructor pain and animation the coin
+    * 
+    * @param {number} x this is the x coordinate of the coin
+    * @param {number} y this is the y coordinate of the coin
+    */
     constructor(x, y) {
         super().loadImage('img/8_coin/coin_1.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.COINS_IMAGES);
@@ -23,7 +29,11 @@ class Coins extends MovableObject {
         this.animate();
     }
 
-
+    /**
+     * this function animate the coin
+     * 
+     * 
+     */
     animate() {
         setInterval(() => {
             this.playAnimation(this.COINS_IMAGES);

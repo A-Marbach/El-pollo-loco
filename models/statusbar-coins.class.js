@@ -21,14 +21,22 @@ class StatusBarCoins extends MovableObject {
     }
 
 
-    //This function loads the appropriate image for the status bar
+    /**
+     * This function loads the appropriate image for the status bar
+     * 
+     * 
+     */
     setPercentage() {
         let path = this.IMAGES_COINS[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
 
-    //This function calculates which image is the right one for the status bar
+    /**
+    * This function calculates which image is the right one for the status bar
+    * 
+    * 
+    */
     resolveImageIndex() {
         if (this.coins == 0) {
             return 0;

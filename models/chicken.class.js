@@ -22,6 +22,11 @@ class Chicken extends MovableObject {
     ]
 
 
+    /**
+     * this constructor pain and animation the chicken
+     * 
+     * @param {number} x this is the x coordinate of the chicken
+     */
     constructor(x) {
         super().loadImage('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.IMAGES_WALKING);
@@ -31,12 +36,21 @@ class Chicken extends MovableObject {
         this.animate();
     }
 
-
+    /**
+     * this function checked situation of the chicken
+     * 
+     * 
+     */
     animate() {
         setInterval(() => this.moveLeft(), 1000 / 60);
         setInterval(() => this.playChicken(), 80);
     }
 
+    /**
+     * this function animate the chicken
+     * 
+     * 
+     */
     playChicken() {
         if (!this.isDead) {
             this.playAnimation(this.IMAGES_WALKING);
@@ -45,18 +59,25 @@ class Chicken extends MovableObject {
             }
     }
 
+    /**
+     * this function give return if the chicken is dead
+     *  
+     * 
+     */
     isChickenDead() {
         return this.isDead;
     }
 
+    /**
+     * this function animate the chicken if he is dead
+     * 
+     * 
+     */
     chickenIsDead() {
         this.playAnimation(this.IMAGES_DEAD);
         this.CHICKEN_DEAD.play();
         this.speed = 0;
-       
-       
         setTimeout(() => {
-
             this.y = 900;
             this.isDead = false;
         }, 1000);

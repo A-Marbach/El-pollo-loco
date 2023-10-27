@@ -16,6 +16,12 @@ class World {
     throwableObjects = [];
 
 
+    /**
+     * this function creates the world
+     * 
+     * @param {string} canvas In this Canvas we pain all Objects
+     * @param {string} keyboard Press Keyboard to move with Character
+     */
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
@@ -26,30 +32,41 @@ class World {
         this.sound();
     }
 
+    /**
+     * this function checks the sound
+     * 
+     */
     sound() {
-        setInterval(() =>{
+        setInterval(() => {
             if (!sound_is_mute) {
                 background_sound.pause();
             } else if (sound_is_mute) {
-                    background_sound.play();
-            } 
+                background_sound.play();
+            }
         }, 100)
-        
     }
 
-
+    /**
+     * this function passes this to all other classes
+     * 
+     */
     setWorld() {
         this.character.world = this;
     }
 
-
+    /**
+     * This function checks collisions
+     * 
+     */
     run() {
         setInterval(() => this.checkCollisions(), 80);
-        setInterval(() => this.checkThrowObjects(), 100);
+        setInterval(() => this.checkThrowObjects(), 120);
     }
 
-
-    //throw a bottle
+    /**
+     * this function checks throw
+     * 
+     */
     checkThrowObjects() {
         if (this.whenIHaveBottle()) {
             let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
@@ -60,13 +77,20 @@ class World {
         }
     }
 
-
-    //Check whether the character has a bottle or not
+    /**
+     * this function Check whether the character has a bottle or not
+     * 
+     * 
+     */
     whenIHaveBottle() {
         return this.keyboard.D && this.bottles.length > 0;
     }
 
-
+    /**
+     * this function checks the collision with everything
+     * 
+     * 
+     */
     checkCollisions() {
         //Bottle collision with chicken
         this.level.enemies.forEach((enemy) => {
@@ -74,7 +98,6 @@ class World {
                 if (bottle.isColliding(enemy)) {
                     enemy.isDead = true;
                     bottle.isBottleSplash = true;
-
                 }
             });
         });
@@ -84,7 +107,6 @@ class World {
                 if (bottle.isColliding(e)) {
                     e.isDead = true;
                     bottle.isBottleSplash = true;
-
                 }
             });
         });
@@ -96,12 +118,10 @@ class World {
                     bottle.x = 0;
                     bottle.y = -1000;
                     this.level.endboss[0].hit(34);
-
                     this.statusBarEndboss.setPercentage(this.level.endboss[0].energy);
                 }
             });
         });
-
 
         //Character collects a bottle
         this.level.bottle.forEach((bottle) => {
@@ -115,7 +135,6 @@ class World {
             }
         });
 
-
         //Character collects a coin
         this.level.coins.forEach((coin) => {
             if (this.character.isColliding(coin)) {
@@ -127,7 +146,6 @@ class World {
                 this.statusBarCoins.setPercentage();
             }
         });
-
 
         //Character jump on chicken
         this.level.enemies.forEach((enemy) => {
@@ -141,7 +159,6 @@ class World {
             }
         });
 
-
         //Character jump on small chicken
         this.level.enemies_small.forEach((enemy) => {
             if (!enemy.isDead && this.character.isColliding(enemy)) {
@@ -154,20 +171,21 @@ class World {
             }
         });
 
-
         //Character collision with enemies and hit the Character
         this.level.endboss.forEach((endboss) => {
             if (this.character.isColliding(endboss)) {
                 if (this.character.y + this.character.height > endboss.y && !this.character.isHurt())
                     this.character.hit();
                 this.statusBar.setPercentage(this.character.energy);
-
             }
         });
     }
 
-
-    //draw the world with all Objects
+    /**
+     * this function draw the world with all Objects
+     * 
+     * 
+     */
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -200,7 +218,6 @@ class World {
 
         this.ctx.translate(-this.camera_x, 0);
 
-
         //draw wird immer wieder aufgerufen
         let self = this;
         requestAnimationFrame(function () {
@@ -208,16 +225,22 @@ class World {
         });
     }
 
-
-    //looks for all the objects
+    /**
+     * this function looks for all the objects
+     * 
+     * @param {string} objects the string 'object' are all objects to pain in canvas 
+     */
     addObjectsToMap(objects) {
         objects.forEach(o => {
             this.addToMap(o);
         });
     }
 
-
-    //looks for all the objects
+    /**
+     * this function checked the position of character
+     * 
+     * @param {string} mo this is the character
+     */
     addToMap(mo) {
         if (mo.otherDirection) {
             this.flipImage(mo);
@@ -229,8 +252,11 @@ class World {
         }
     }
 
-
-    //flip Image from Character
+    /**
+     * this function flipped image from character
+     * 
+     * @param {string} mo this is the character
+     */
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -238,8 +264,11 @@ class World {
         mo.x = mo.x * -1;
     }
 
-    
-    //flip Image back from character
+    /**
+     * this function flipped image back from character
+     * 
+     * @param {string} mo this is the character
+     */
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();

@@ -1,5 +1,4 @@
 body {
-    /* position: relative; */
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -75,8 +74,6 @@ body {
     left: 100px;
 }
 
-
-
 .story-container {
     position: absolute;
     width: 100%;
@@ -112,17 +109,14 @@ body {
     padding-left: 8px;
 }
 
-
 .flex {
     display: flex;
     padding-left: 48px;
-
 }
 
 .flex p {
     margin: 0;
     padding-bottom: 0;
-
 }
 
 .column {
@@ -139,16 +133,12 @@ body {
     padding-bottom: 4px;
 }
 
-
 h2 {
     text-align: center;
     font-size: 32px;
     text-decoration: underline;
     margin: 8px;
 }
-
-
-
 
 .flex div {
     font-weight: bold;
@@ -216,15 +206,10 @@ h2 {
     position: absolute;
 }
 
-
-
 .start-screen img {
     width: 720px;
     height: 480px;
-    /* background-size: contain; */
 }
-
-
 
 .option-btn {
     position: absolute;
@@ -275,9 +260,6 @@ h2 {
     text-align: center;
     z-index: 9;
     padding-top: 128px;
-    /* width: 720px;
-    height: 480px; */
-
 }
 
 .fullscreen-container {
@@ -312,7 +294,6 @@ h2 {
     z-index: 999;
     width: 100%;
     height: 100%;
-
 }
 
 .ton {
@@ -326,7 +307,6 @@ h2 {
     top: 0;
 }
 
-
 button {
     position: absolute;
     top: 5%;
@@ -339,11 +319,8 @@ button {
 }
 
 button:hover {
-
     background-color: #FFC423;
 }
-
-
 
 h1 {
     font-size: 84px;
@@ -352,8 +329,6 @@ h1 {
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
     font-family: 'Zabars', Arial, Helvetica, sans-serif;
 }
-
-
 
 .d-none {
     display: none;
@@ -364,33 +339,21 @@ canvas {
     display: block;
     width: 720px;
     height: 480px;
-    /* border: 1px solid black; */
 }
 
 
 @media only screen and (max-width: 900px) {
-
-
     canvas {
-       
         width: 100%;
     }
 
     .canvas-container {
         width: 100%;
-        
-        
     }
-
-  
 
     .flex {
         padding-left: 11%;
     }
-
-    /* .story-container {
-        height: 100%;
-    } */
 
     .story-container p{
         font-size: 22px;
@@ -400,7 +363,6 @@ canvas {
         margin: 46px;
     }
 
-
     h1 {
         display: none;
     }
@@ -409,15 +371,12 @@ canvas {
         width: 100%;
     }
 
-
     .start-screen img {
         width: 100%;
     }
 
-
     .you-win-container {
         width: 100%;
-        
     }
 
     .you-win-container p {
@@ -427,8 +386,7 @@ canvas {
     }
 
     .end-screen-container {
-        width: 100%;
-        
+        width: 100%; 
     }
 
     .new-game-btn {
@@ -448,12 +406,7 @@ canvas {
     .column img {
         padding-top: 4px;
     }
-
-    /* body{
-        background-image:  none;
-    } */
 }
-
 
 
 @media (max-height: 450px) and (max-width: 900px) {
@@ -490,7 +443,6 @@ canvas {
         height: 100vh;
     }
 
-
     .you-win-container p {
         font-size: 76px;
     }
@@ -521,11 +473,6 @@ canvas {
     }
 }
 
-/* @media (max-height: 450px) and (max-width: 700px){
-
-} */
-
-
 @media (max-width: 650px) {
     .rotate-your-phone-container {
         display: block;
@@ -535,81 +482,4 @@ canvas {
     .canvas-container {
         display: none;
     }
-
-    /* body {
-        background-image: none;
-        
-     }  */
 }
-
-/* 
-@media only screen and (max-width: 480px) {
-    canvas {
-        height: 100vh;
-        width: 100%;
-    }
-
-   
-    .story-container {
-        height: 100vh;
-    }
-
-    .progress-container{
-        height: 100vh;
-    }
-
-    .story-container p {
-        font-size: 28px;
-    }
-
-    h1 {
-        display: none;
-    }
-
-    .mobile-btn {
-        display: block;
-    }
-
-    .canvas-container {
-        height: 100vh;
-    }
-
-    .start-screen {
-        margin: 0;
-        height: 100vh;
-    }
-
-    .start-screen img {
-        height: 100vh;
-    }
-
-    .you-win-container {
-        height: 100vh;
-    }
-
-    .you-win-container p {
-        height: 100%;
-        padding-top: 0;
-    }
-
-    .end-screen-container {
-        height: 100vh;
-    }
-
-    .new-game-btn {
-        top: 280px;
-    }
-
-    .option-btn {
-        top: 280px;
-    }
-
-
-    body {
-        height: 100vh;
-    }
-
-
-
-
-} */

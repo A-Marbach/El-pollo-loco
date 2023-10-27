@@ -71,6 +71,12 @@ class Character extends MovableObject {
         'img/2_character_pepe/1_idle/long_idle/I-20.png',
     ];
 
+
+    /**
+     * this constructor pain and animation the character
+     * 
+     * 
+     */
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.IMAGES_WALKING);
@@ -83,12 +89,21 @@ class Character extends MovableObject {
         this.animate();
     }
 
-
+    /**
+     * this function checked situation of the character
+     * 
+     * 
+     */
     animate() {
         setInterval(() => this.moveCharacter(), 1000 / 60);
         setInterval(() => this.playCharacter(), 80);
     }
 
+    /**
+     * this function moves the character
+     * 
+     * 
+     */
     moveCharacter() {
         this.walking_sound.pause();
         if (this.canMoveRight()) 
@@ -100,35 +115,70 @@ class Character extends MovableObject {
         this.world.camera_x = -this.x + 100;
     }
 
+    /**
+     * this function checks whether the character can go to the right
+     * 
+     * 
+     */
     canMoveRight() {
         return this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x;
     }
 
+    /**
+     * this function move to right
+     * 
+     * 
+     */
     moveRight() {
         super.moveRight();
         this.otherDirection = false;
         this.walking_sound.play();
     }
 
+    /**
+     * this function checks whether the character can go to the left
+     * 
+     * 
+     */
     canMoveLeft() {
         return this.world.keyboard.LEFT && this.x > 0
     }
 
+    /**
+     * this function move to left
+     * 
+     * 
+     */
     moveLeft() {
         super.moveLeft();
         this.otherDirection = true;
         this.walking_sound.play();
     }
 
+    /**
+     * this function checks whether the character can go to jump
+     * 
+     * 
+     */
     canJump(){
        return this.world.keyboard.JUMP && !this.isAboveGround()
     }
 
+    /**
+     * this function jump
+     * 
+     * 
+     */
     jump(){
         super.jump();
         this.jumping_sound.play();
     }
 
+    /**
+     * this function animated the character
+     * 
+     * 
+     */
     playCharacter() {
         this.hurt_sound.pause();
         this.timer++;

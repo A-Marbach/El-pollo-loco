@@ -17,6 +17,12 @@ class ThrowableObject extends MovableObject {
     ]
 
 
+    /**
+     * this constructor pain and animation the bottle 
+     * 
+     * @param {number} x this is the x coordinate of the bottle
+     * @param {number} y this is the y coordinate of the bottle
+     */
     constructor(x, y) {
         super().loadImage('img/7_statusbars/3_icons/icon_salsa_bottle.png'); // super()= von movableObject das Bild laden
         this.loadImages(this.IMAGES_ROTATION_BOTTLE);
@@ -28,13 +34,16 @@ class ThrowableObject extends MovableObject {
         this.throw();
     }
 
-    //calculate speed for the bottle
+    /**
+     * this function calculated speed for the bottle
+     * 
+     */
     throw() {
         this.speedY = 15;
         this.applyGravity();
         setInterval(() => {
             if (!this.stopToMoveBottle) {
-                this.x += 8;
+                this.x += 15;
             }
         }, 50);
         setInterval(() => {
@@ -45,7 +54,6 @@ class ThrowableObject extends MovableObject {
                 this.x += 0.001;
                 setTimeout(() => {
                     this.isBottleSplash = false;
-                    
                 }, 1000);
             }
         }, 100);

@@ -14,7 +14,6 @@ class Keyboard {
           }, "1000");
     }
 
-
     pressKeyboard(){
         window.addEventListener("keydown", (e) => { 
             if (e.keyCode == 39) {
@@ -36,8 +35,6 @@ class Keyboard {
                 keyboard.D = true;
             }
         });
-        
-        
         window.addEventListener("keyup", (e) => {
             if (e.keyCode == 39) {
                 keyboard.RIGHT = false;

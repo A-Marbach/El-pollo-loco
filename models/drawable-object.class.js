@@ -9,13 +9,21 @@ class DrawableObject {
     canDrawFrame = false;
 
 
-    //loadImage from all Classes
+    /**
+     * this function loadImage from all Classes
+     * 
+     * @param {string} path the path of img
+     */
     loadImage(path) {
         this.img = new Image(path);
         this.img.src = path;
     }
 
-    //loadImage from all Classes
+    /**
+     * this function gets the image from the respective array
+     * 
+     * @param {array} arr this is array where the image should be loaded after
+     */
     loadImages(arr) {
         arr.forEach((path) => {
             let img = new Image();
@@ -24,12 +32,20 @@ class DrawableObject {
         });
     }
 
-    //draws all images in the canvas
+    /**
+     * this function draws all images in the canvas
+     * 
+     * @param {string} ctx context for the canvas is linked with him
+     */
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
-    //draws outlines of all selected images
+    /**
+     * this function draws outlines of all selected images
+     * 
+     * @param {string} ctx context for the canvas is linked with him
+     */
     drawFrame(ctx) {
         if (this.canDrawFrame) {
             if (this instanceof Character || this instanceof Coins ||
