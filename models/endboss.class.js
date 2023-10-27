@@ -2,8 +2,14 @@ class Endboss extends MovableObject {
     height = 500;
     width = 300;
     y = -35;
-    firstContact = false;
     energy = 100;
+    offset = {
+        top: 0,
+        left: 28,
+        right: 28,
+        bottom: 0
+    }
+    firstContact = false;
     ENDBOSS_HURT = new Audio('audio/endboss-hurt.mp3');
     IMAGES_WALKING = [
         'img/4_enemie_boss_chicken/2_alert/G5.png',
@@ -56,8 +62,6 @@ class Endboss extends MovableObject {
         this.loadImages(this.IMAGES_DEAD);
         this.x = 4700;
         this.speed = 5;
-        // this.moveLeft();
-        // this.applyGravity();
         this.animate();
     }
 
@@ -65,20 +69,43 @@ class Endboss extends MovableObject {
     animate() {
         setInterval(() => {
             this.ENDBOSS_HURT.pause();
-            if (this.endbossIsDead()) {
+            if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
-                
                 this.win();
             } else
-                if (this.isHurt()) {
-                    this.ENDBOSS_HURT.play();
-                    this.CHICKEN_DEAD.play();
-                    this.playAnimation(this.IMAGES_HURT);
-                } else if (world.character.x > 4200 || this.firstContact) {
-                    this.firstContact = true;
-                    this.playAnimation(this.IMAGES_ATTACK);
+                if (this.isEndbossHurt()) {
+                    this.endbossHurt();
+                } else if (this.endbossAttackCharacter()) {
                     this.moveLeft();
                 }
         }, 200);
+    }
+
+    isEndbossHurt() {
+        return this.isHurt();
+    }
+
+    endbossHurt() {
+    // if(world.level.bottle.dontMakeDamageMore == true){
+    //     console.log('asdasd');
+    //     this.bottle.x = 9000;
+    //     this.bottle.y = 9000;
+    //     this.bottle.width = 0;
+    //     this.bottle.height = 0;
+    //     world.level.bottle.dontMakeDamageMore = false;
+    // }
+        this.ENDBOSS_HURT.play();
+        this.CHICKEN_DEAD.play();
+        this.playAnimation(this.IMAGES_HURT);
+    }
+
+    endbossAttackCharacter() {
+        return world.character.x > 4200 || this.firstContact;
+    }
+
+    moveLeft() {
+        this.firstContact = true;
+        this.playAnimation(this.IMAGES_ATTACK);
+        super.moveLeft();
     }
 }

@@ -10,14 +10,13 @@ class Keyboard {
     constructor() {
         this.pressKeyboard();
         setTimeout(() => {
-            this.touchMobileBtn();
+            this.touchMobileBtn();  //timeout so that the IDs can be loaded and then accessed
           }, "1000");
-        
     }
 
 
     pressKeyboard(){
-        window.addEventListener("keydown", (e) => { //Tastatur wird gedrückt
+        window.addEventListener("keydown", (e) => { 
             if (e.keyCode == 39) {
                 keyboard.RIGHT = true;
             }
@@ -66,37 +65,30 @@ class Keyboard {
             e.preventDefault();
            keyboard.LEFT = true;
         });
-
         document.getElementById('btn-left').addEventListener('touchend', (e) => {
             e.preventDefault();
             keyboard.LEFT = false;
         });
-
         document.getElementById('btn-right').addEventListener('touchstart', (e) => {
             e.preventDefault();
             keyboard.RIGHT = true;
         });
-
         document.getElementById('btn-right').addEventListener('touchend', (e) => {
             e.preventDefault();
             keyboard.RIGHT = false;
         });
-
         document.getElementById('btn-jump').addEventListener('touchstart', (e) => {
             e.preventDefault();
             keyboard.JUMP = true;
         });
-
         document.getElementById('btn-jump').addEventListener('touchend', (e) => {
             e.preventDefault();
             keyboard.JUMP = false;
         });
-
         document.getElementById('btn-throw').addEventListener('touchstart', (e) => {
             e.preventDefault();
             keyboard.D = true;
         });
-
         document.getElementById('btn-throw').addEventListener('touchend', (e) => {
             e.preventDefault();
             keyboard.D = false;

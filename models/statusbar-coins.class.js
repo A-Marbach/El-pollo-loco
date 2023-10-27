@@ -2,16 +2,13 @@ class StatusBarCoins extends MovableObject {
     width = 200;
     height = 40;
     coins = 0;
-
     IMAGES_COINS = [
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/0.png',
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/20.png',
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/40.png',
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/60.png',
         'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/80.png',
-        'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/100.png',
-
-
+        'img/7_statusbars/1_statusbar/1_statusbar_coin/blue/100.png'
     ];
 
 
@@ -24,12 +21,14 @@ class StatusBarCoins extends MovableObject {
     }
 
 
+    //This function loads the appropriate image for the status bar
     setPercentage() {
         let path = this.IMAGES_COINS[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
 
+    //This function calculates which image is the right one for the status bar
     resolveImageIndex() {
         if (this.coins == 0) {
             return 0;

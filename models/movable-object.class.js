@@ -16,6 +16,7 @@ class MovableObject extends DrawableObject {
     }
 
 
+    //gravity is calculated
     applyGravity() {
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
@@ -25,10 +26,16 @@ class MovableObject extends DrawableObject {
         }, 1000 / 30);
     }
 
+
+    //clear All Intervals for new game
     clearAllIntervals() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
+        sound_is_mute = false;
+        document.getElementById('mute').src='img/ton-aus.png';
+        document.getElementById('mute').style.opacity = 0.3;
     }
 
+    
     isAboveGround() {
         if (this instanceof ThrowableObject) {
             return true;
@@ -38,8 +45,8 @@ class MovableObject extends DrawableObject {
     }
 
 
-    hit() {
-        this.energy -= 5;
+    hit(damage = 5) {
+        this.energy -= damage;
         if (this.energy < 0) {
             this.energy = 0;
         } else {
@@ -59,38 +66,14 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
-
-    endbossHit() {
-        this.energy -= 34;
-        if (this.energy < 0) {
-            this.energy = 0;
-        } else {
-            this.lastHit = new Date().getTime();
-        }
-    }
-
-
-    endbossIsDead() {
-        return this.energy == 0;
-    }
-
-
+    
+    //collision for character and enemies
     isColliding(mo) {
-        return this.x + this.width > mo.x &&
-            this.y + this.height > mo.y &&
-            this.x < mo.x &&
-            this.y < mo.y + mo.height
-    }
-
-
-    isCollidingWithBottleOrCoin(mo) {
         return this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
             this.y + this.height - this.offset.bottom > mo.y + mo.offset.top &&
             this.x + this.offset.left < mo.x + mo.width - mo.offset.right &&
             this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom
     }
-
-
 
     moveRight() {
         this.x += this.speed;
@@ -102,6 +85,7 @@ class MovableObject extends DrawableObject {
     }
 
 
+    //This function loads all images from an array
     playAnimation(images) {
         let i = this.currentImage % images.length; // let i = 0, 1, 2, 3, 4, 5, 0
         let path = images[i];
@@ -111,12 +95,12 @@ class MovableObject extends DrawableObject {
 
 
     jump() {
-        this.speedY = 16;
+        this.speedY = 17;
     }
 
 
+    //character won
     win() {
-        // this.ENDBOSS_HURT.play();
         this.win_sound.play(); 
         setInterval(() => {
             setTimeout(() => {
@@ -131,22 +115,25 @@ class MovableObject extends DrawableObject {
     }
 
 
+    youWin() {
+        setTimeout(() => {
+            let win = document.getElementById('win');
+            win.classList.remove('d-none');
+            this.clearAllIntervals();
+            background_sound.pause();
+        }, "50");
+    }
+
+
+    //character had lose
     gameOver() {
         this.lose_sound.play();
         setTimeout(() => {
             let gameOver = document.getElementById('game-over');
             gameOver.classList.remove('d-none');
             this.clearAllIntervals();
+            background_sound.pause();
         }, "1500");
-    }
-
-
-    youWin() {
-        setTimeout(() => {
-            let win = document.getElementById('win');
-            win.classList.remove('d-none');
-            this.clearAllIntervals();
-        }, "50");
     }
 }
 

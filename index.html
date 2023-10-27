@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/2_character_pepe/1_idle/idle/I-1.png">
     <link rel="stylesheet" href="style.css">
     <script src="models/drawable-object.class.js"></script>
     <script src="models/movable-object.class.js"></script>
@@ -25,8 +26,8 @@
     <script src="models/coins.class.js"></script>
     <script src="models/bottle.class.js"></script>
     <script src="levels/level1.js"></script>
+    <!-- <script src="levels/level2.js"></script> -->
     <script src="js/game.js"></script>
-
     <style>
         @font-face {
             font-family: 'Zabars';
@@ -37,37 +38,43 @@
 </head>
 
 <body>
-
+    <div id="rotate" class="rotate-your-phone-container">
+        <div class="rotate-your-phone">
+            <p>Please rotate your Phone</p>
+            <img src="img/rotate.png">
+        </div>
+    </div>
     <h1>El Pollo Loco</h1>
     <div id="fullscreen" class="canvas-container">
+        <div id="load-bar" class=" d-none progress-container">
+            <div class="progress">
+                <div class="bar"></div>
+            </div>
+        </div>
+
         <div id="start-screen" class="start-screen">
             <img src='img/9_intro_outro_screens/start/startscreen_1.png'>
             <button id="btn" onclick="init()">Play</button>
         </div>
-        <div id="rotate" class="rotate-your-phone-container">
-            <div class="rotate-your-phone">
-                <p>Please rotate your Phone</p>
-                <img src="img/rotate.png">
-            </div>
-        </div>
+
         <div class="fullscreen-container">
             <div id="nav-bar" class="info-container">
                 <div id="info">
                     <img onclick="openStory()" class="cursor opacity" src="img/info.png">
                 </div>
                 <div>
-                    <!-- <img id="mute" onclick="muteSound()" class="ton cursor" src="img/ton-an.png"> -->
+                    <img id="mute" onclick="checkSound()" class="d-none ton cursor" src="img/ton-aus.png">
                     <!-- <img class="cursor" onclick="fullscreen()" src="img/vollbild.png"> -->
                 </div>
             </div>
         </div>
         <div id="game-over" class=" d-none end-screen-container">
-            <img class="grow" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
-
+            <img class="grow" src="img/9_intro_outro_screens/game_over/game over!.png">
             <button class="new-game-btn" onclick="init()">New Game</button>
             <button class="option-btn" onclick="startScreen()">Option</button>
-
         </div>
+
+
 
         <div id="info-container" class="d-none story-container">
             <img onclick="closeStory()" src="img/x.png">
@@ -78,14 +85,14 @@
 
             <div class="flex">
                 <div class="flex">
-                    <div>
+                    <div class="key-assignment">
                         <p>LEFT:</p>
                         <p>RIGHT:</p>
 
                     </div>
                     <div class="column">
                         <img src="img/pfeil-links.png">
-                        <img src="img/pfeil-rechts.png">
+                        <img class="padding" src="img/pfeil-rechts.png">
                     </div>
                 </div>
 
@@ -101,9 +108,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
 
         <div id="win" class="d-none you-win-container">
             <p>You Win this Game!
@@ -124,22 +129,9 @@
                     </div>
                 </div>
             </div>
-            <canvas  id="canvas" width="720" height="480"></canvas>
+            <canvas id="canvas" width="720" height="480"></canvas>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-    <!-- © <a href='https://de.123rf.com/profile_virtosmedia'>virtosmedia</a>, <a href='https://www.123rf.com/free-images/'>123RF Free Images</a> -->
-
-
 </body>
 
 </html>

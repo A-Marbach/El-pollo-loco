@@ -4,13 +4,13 @@ class Bottle extends MovableObject {
     width = 60;
     x;
     isBottleSplash = false;
+    dontMakeDamageMore = false;
     offset = {
         top: 10,
         left: 15,
         right: -20,
         bottom: -20
     }
-
     IMAGES_SPLASH_BOTTLE = [
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png',
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png',
@@ -44,8 +44,6 @@ class Bottle extends MovableObject {
     animate() {
         if (this.isBottleSplash) {
             this.playanimation(this.IMAGES_SPLASH_BOTTLE);
-            
-                
         }
     }
 }

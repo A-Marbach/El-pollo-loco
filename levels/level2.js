@@ -4,8 +4,8 @@ function initLevel() {
 
     level2 = new Level(
         [
-            new Chicken(1000),
-           
+            new Chicken(700),
+            
            
         ],
         [
@@ -57,40 +57,16 @@ function initLevel() {
         ],
         [
             new Coins(300, 160),
-            new Coins(600, 250),
-            new Coins(1100, 200),
-            new Coins(1300, 240),
-            new Coins(1500, 230),
-            new Coins(1700, 220),
-            new Coins(1900, 210),
-            new Coins(2100, 200),
-            new Coins(2300, 190)
-        ],
-        [
-            new Bottle(1400, 0),
-            new Bottle(1600, 0),
-            new Bottle(1600, 0),
-            new Bottle(1200, 0),
-            new Bottle(1900, 0),
-            new Bottle(2200, 0),
-            new Bottle(2500, 0),
-            new Bottle(2800, 360),
-            new Bottle(3700, 360),
-            new Bottle(3800, 360),
-            new Bottle(1400, 360),
-            new Bottle(1600, 360),
-            new Bottle(1600, 360),
-            new Bottle(1200, 360),
-            new Bottle(1900, 360),
-            new Bottle(2200, 360),
-            new Bottle(2500, 360),
-            new Bottle(2800),
-            new Bottle(3700),
-            new Bottle(3800)
-        ],
-        [
-            new SmallChicken(1000),
             
+         
+        ],
+        [
+            new Bottle(350, 200),
+           
+        ],
+        [
+            new SmallChicken(1200),
+          
             
         ],
         [

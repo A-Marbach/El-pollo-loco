@@ -1,6 +1,4 @@
 class Statusbar extends DrawableObject {
-
-
     width = 200;
     height = 60;
     percentage = 100;
@@ -23,6 +21,7 @@ class Statusbar extends DrawableObject {
     }
 
 
+    //This function loads the appropriate image for the status bar
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.IMAGES_HEALTH[this.resolveImageIndex()];
@@ -30,6 +29,7 @@ class Statusbar extends DrawableObject {
     }
 
 
+     //This function calculates which image is the right one for the status bar
     resolveImageIndex() {
         if (this.percentage == 100) {
             return 5;

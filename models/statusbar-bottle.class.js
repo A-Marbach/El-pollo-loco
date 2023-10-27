@@ -9,7 +9,6 @@ class StatusBarBottle extends MovableObject {
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/60.png',
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/80.png',
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/blue/100.png'
-
     ];
 
 
@@ -21,12 +20,14 @@ class StatusBarBottle extends MovableObject {
         this.setPercentage();
     }
 
-
+    //This function loads the appropriate image for the status bar
     setPercentage() {
         let path = this.IMAGES_BOTTLE[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+
+    //This function calculates which image is the right one for the status bar
     resolveImageIndex() {
         if (this.bottles == 0) {
             return 0;

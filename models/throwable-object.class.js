@@ -28,17 +28,15 @@ class ThrowableObject extends MovableObject {
         this.throw();
     }
 
-
+    //calculate speed for the bottle
     throw() {
         this.speedY = 15;
         this.applyGravity();
-
         setInterval(() => {
             if (!this.stopToMoveBottle) {
                 this.x += 8;
             }
-        }, 25);
-
+        }, 50);
         setInterval(() => {
             if (!this.isBottleSplash) {
                 this.playAnimation(this.IMAGES_ROTATION_BOTTLE);
@@ -47,8 +45,6 @@ class ThrowableObject extends MovableObject {
                 this.x += 0.001;
                 setTimeout(() => {
                     this.isBottleSplash = false;
-                    this.stopToMoveBottle = true;
-                    
                     
                 }, 1000);
             }

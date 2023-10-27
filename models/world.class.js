@@ -8,7 +8,7 @@ class World {
     bottles = [];
     coins = [];
     coin_sound = new Audio('audio/coin.mp3');
-
+    bottle_sound = new Audio('audio/bottle.mp3');
     statusBar = new Statusbar();
     statusBarEndboss = new StatusBarEndboss();
     statusBarBottle = new StatusBarBottle();
@@ -23,6 +23,18 @@ class World {
         this.draw();
         this.setWorld();
         this.run();
+        this.sound();
+    }
+
+    sound() {
+        setInterval(() =>{
+            if (!sound_is_mute) {
+                background_sound.pause();
+            } else if (sound_is_mute) {
+                    background_sound.play();
+            } 
+        }, 100)
+        
     }
 
 
@@ -32,10 +44,8 @@ class World {
 
 
     run() {
-        setInterval(() => {
-            this.checkCollisions();
-            this.checkThrowObjects();
-        }, 180);
+        setInterval(() => this.checkCollisions(), 80);
+        setInterval(() => this.checkThrowObjects(), 100);
     }
 
 
@@ -51,7 +61,8 @@ class World {
     }
 
 
-    whenIHaveBottle(){
+    //Check whether the character has a bottle or not
+    whenIHaveBottle() {
         return this.keyboard.D && this.bottles.length > 0;
     }
 
@@ -62,8 +73,8 @@ class World {
             this.throwableObjects.forEach((bottle) => {
                 if (bottle.isColliding(enemy)) {
                     enemy.isDead = true;
-                    console.log('yes');
                     bottle.isBottleSplash = true;
+
                 }
             });
         });
@@ -73,23 +84,20 @@ class World {
                 if (bottle.isColliding(e)) {
                     e.isDead = true;
                     bottle.isBottleSplash = true;
-                    // bottle.isBottleSplash = true;
-                    // bottle.stopToMoveBottle = true;
+
                 }
             });
         });
-
-
-           //Bottle collision with endboss
+        //Bottle collision with endboss
         this.level.endboss.forEach((e) => {
             this.throwableObjects.forEach((bottle) => {
                 if (bottle.isColliding(e)) {
                     bottle.isBottleSplash = true;
-                    e.isDead = true;
-                    this.level.endboss[0].endbossHit();
+                    bottle.x = 0;
+                    bottle.y = -1000;
+                    this.level.endboss[0].hit(34);
+
                     this.statusBarEndboss.setPercentage(this.level.endboss[0].energy);
-                    // bottle.isBottleSplash = true;
-                    // bottle.stopToMoveBottle = true;
                 }
             });
         });
@@ -97,11 +105,12 @@ class World {
 
         //Character collects a bottle
         this.level.bottle.forEach((bottle) => {
-            if (this.character.isCollidingWithBottleOrCoin(bottle)) {
+            if (this.character.isColliding(bottle)) {
                 this.bottles.push(1);
                 this.statusBarBottle.bottles++;
                 bottle.x = 0;
                 bottle.y = -1000;
+                this.bottle_sound.play();
                 this.statusBarBottle.setPercentage();
             }
         });
@@ -109,7 +118,7 @@ class World {
 
         //Character collects a coin
         this.level.coins.forEach((coin) => {
-            if (this.character.isCollidingWithBottleOrCoin(coin)) {
+            if (this.character.isColliding(coin)) {
                 this.coins.push(1);
                 this.statusBarCoins.coins++;
                 coin.x = 0;
@@ -147,19 +156,18 @@ class World {
 
 
         //Character collision with enemies and hit the Character
-        this.level.endboss.forEach((enemy) => {
-            if (this.character.isColliding(enemy)) {
-                if (this.character.y + this.character.height > enemy.y && this.character.isAboveGround() && !this.character.isHurt()) {
-                    enemy.isDead = true;
-                } else {
+        this.level.endboss.forEach((endboss) => {
+            if (this.character.isColliding(endboss)) {
+                if (this.character.y + this.character.height > endboss.y && !this.character.isHurt())
                     this.character.hit();
-                    this.statusBar.setPercentage(this.character.energy);
-                }
+                this.statusBar.setPercentage(this.character.energy);
+
             }
         });
     }
 
 
+    //draw the world with all Objects
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -168,8 +176,6 @@ class World {
 
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
-
-
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.enemies_small);
         this.addObjectsToMap(this.level.endboss);
@@ -177,11 +183,10 @@ class World {
         this.addObjectsToMap(this.level.bottle);
         this.addObjectsToMap(this.throwableObjects);
 
-
         this.addToMap(this.character);
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBar);
-        if (this.character.x > 4200 && !this.firstContact) {
+        if (this.character.x > 4200 && !this.firstContact) {  //show status bar of final boss first Time
             this.addToMap(this.statusBarEndboss);
             this.firstContact = true;
         } else if (this.firstContact == true) {
@@ -204,6 +209,7 @@ class World {
     }
 
 
+    //looks for all the objects
     addObjectsToMap(objects) {
         objects.forEach(o => {
             this.addToMap(o);
@@ -211,20 +217,20 @@ class World {
     }
 
 
+    //looks for all the objects
     addToMap(mo) {
         if (mo.otherDirection) {
             this.flipImage(mo);
         }
         mo.draw(this.ctx);
         mo.drawFrame(this.ctx);
-
-
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }
     }
 
 
+    //flip Image from Character
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -232,7 +238,8 @@ class World {
         mo.x = mo.x * -1;
     }
 
-
+    
+    //flip Image back from character
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();
