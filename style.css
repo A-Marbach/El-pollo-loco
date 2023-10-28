@@ -9,16 +9,13 @@ body {
     background-size: cover;
     object-fit: cover;
     height: 100vh;
-
 }
-
 .progress-container {
     position: absolute;
     width: 100%;
     height: 480px;
     background: black;
 }
-
 .progress {
     --progress: 0%;
     width: 500px;
@@ -28,7 +25,6 @@ body {
     padding: 12px 10px;
     box-shadow: 0 0 10px #aaa;
 }
-
 .progress .bar {
     text-align: center;
     color: white;
@@ -43,7 +39,6 @@ body {
         end 1s ease-out 1 3s;
     transition: width 1s ease 1s;
 }
-
 @property --progress {
     syntax: "<length>";
     initial-value: 0%;
@@ -69,25 +64,21 @@ body {
         box-shadow: 0 0 15px 5px orange;
     }
 }
-
 .level2 {
     left: 100px;
 }
-
 .story-container {
     position: absolute;
     width: 100%;
     height: 480px;
     background-image: url('img/bg-new.jpg');
 }
-
 .story-container img {
     height: 16px;
     width: 16px;
     margin-bottom: 0;
     cursor: pointer;
 }
-
 .story-container p {
     font-size: 32px;
     padding-left: 16px;
@@ -95,61 +86,50 @@ body {
     padding-top: 8px;
     padding-bottom: 0 !important;
 }
-
 .explanation {
     text-align: center;
     padding-bottom: 8px;
     font-size: 32px;
 }
-
 .story-container img {
     width: 32px;
     height: 32px;
     padding-top: 12px;
     padding-left: 8px;
 }
-
 .flex {
     display: flex;
     padding-left: 48px;
 }
-
 .flex p {
     margin: 0;
     padding-bottom: 0;
 }
-
 .column {
     display: flex;
     flex-direction: column;
     justify-content: end;
 }
-
 .column img {
     margin: 0;
 }
-
 .padding {
     padding-bottom: 4px;
 }
-
 h2 {
     text-align: center;
     font-size: 32px;
     text-decoration: underline;
     margin: 8px;
 }
-
 .flex div {
     font-weight: bold;
 }
-
 .canvas-container {
     position: relative;
     width: 720px;
     height: 480px;
 }
-
 .mobile-btn {
     position: absolute;
     bottom: 0;
@@ -157,7 +137,6 @@ h2 {
     z-index: 999;
     display: none;
 }
-
 .mobile-btn img {
     padding-left: 8px;
     padding-right: 8px;
@@ -166,20 +145,17 @@ h2 {
     height: 30px;
     width: 30px;
 }
-
 .mobile-btn div {
     display: flex;
     justify-content: space-between;
     padding-bottom: 8px;
 }
-
 .rotate-your-phone-container {
     height: 100vh;
     background-color: black;
     display: none;
     z-index: 999;
 }
-
 .rotate-your-phone {
     display: flex;
     flex-direction: column;
@@ -189,11 +165,9 @@ h2 {
     color: white;
     font-family: 'Zabars', Arial, Helvetica, sans-serif;
 }
-
 .rotate-your-phone p {
     text-align: center;
 }
-
 .rotate-your-phone img {
     width: 128px;
     height: 128px;
@@ -201,16 +175,13 @@ h2 {
     background-size: cover;
     object-fit: cover;
 }
-
 .start-screen {
     position: absolute;
 }
-
 .start-screen img {
     width: 720px;
     height: 480px;
 }
-
 .option-btn {
     position: absolute;
     top: 300px;
@@ -221,12 +192,10 @@ h2 {
     background-color: #FFC521;
     color: black;
 }
-
 .option-btn:hover {
     cursor: pointer;
     background-color: #ffd255;
 }
-
 .new-game-btn {
     position: absolute;
     top: 300px;
@@ -237,19 +206,16 @@ h2 {
     background-color: #FFC521;
     color: black;
 }
-
 .new-game-btn:hover {
     cursor: pointer;
     background-color: #ffd255;
 }
-
 .you-win-container {
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
     width: 720px;
     height: 480px;
 }
-
 .you-win-container p {
     color: #FFDC03;
     display: flex;
@@ -261,52 +227,43 @@ h2 {
     z-index: 9;
     padding-top: 128px;
 }
-
 .fullscreen-container {
     position: absolute;
     width: 100%;
 }
-
 .fullscreen-container img {
     width: 28px;
     height: 28px;
     padding: 8px;
 }
-
 .info-container {
     display: flex;
     justify-content: space-between;
 }
-
 .cursor {
     cursor: pointer;
 }
-
 .end-screen-container {
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
     width: 720px;
     height: 480px;
 }
-
 .end-screen-container img {
     display: flex;
     z-index: 999;
     width: 100%;
     height: 100%;
 }
-
 .ton {
     width: 32px !important;
     height: 32px !important;
     opacity: 0.3;
 }
-
 .info {
     position: absolute;
     top: 0;
 }
-
 button {
     position: absolute;
     top: 5%;
@@ -317,11 +274,9 @@ button {
     padding: 16px;
     border-radius: 30%;
 }
-
 button:hover {
     background-color: #FFC423;
 }
-
 h1 {
     font-size: 84px;
     margin: 0;
@@ -329,156 +284,122 @@ h1 {
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
     font-family: 'Zabars', Arial, Helvetica, sans-serif;
 }
-
 .d-none {
     display: none;
 }
-
 canvas {
     background-color: black;
     display: block;
     width: 720px;
     height: 480px;
 }
-
-
 @media only screen and (max-width: 900px) {
     canvas {
         width: 100%;
     }
-
     .canvas-container {
         width: 100%;
     }
-
     .flex {
         padding-left: 11%;
     }
-
     .story-container p{
         font-size: 22px;
     }
-
     h2 {
         margin: 46px;
     }
-
     h1 {
         display: none;
     }
-
     .start-screen {
         width: 100%;
     }
-
     .start-screen img {
         width: 100%;
     }
-
     .you-win-container {
         width: 100%;
     }
-
     .you-win-container p {
         font-size: 60px;
         width: 100%;
         padding-top: 100px;
     }
-
     .end-screen-container {
         width: 100%; 
     }
-
     .new-game-btn {
         top: 290px;
         left: 25%;
     }
-
     .option-btn {
         top: 290px;
         left: 58%;
     }
-
     .column {
         justify-content: flex-start;
     }
-
     .column img {
         padding-top: 4px;
     }
 }
-
-
 @media (max-height: 450px) and (max-width: 900px) {
-
     body{
         background-image: none;
     }
-
+    .mobile-btn{
+        display: block;
+    }
     .end-screen-container{
         height: 100vh;
     }
-
     .you-win-container{
         height: 100vh;
     }
-
     .start-screen img{
         height: 100vh;
     }
-
     .story-container{
         height: 100vh;
     }
-
     .progress-container {
         height: 100vh;
     }
-
     .canvas-container{
         height: 100vh;
     }
-
     canvas{
         height: 100vh;
     }
-
     .you-win-container p {
         font-size: 76px;
     }
-
     .story-container p {
         font-size: 24px;
     }
-
     .column {
         justify-content: flex-start;
     }
-
     .column img {
         padding-top: 4px;
     }
-
     h2 {
         margin: 10px;
     }
-
     .new-game-btn {
         top: 60%;
         left: 25%;
     }
-
     .option-btn{
         top: 60%;
     }
 }
-
 @media (max-width: 650px) {
     .rotate-your-phone-container {
         display: block;
         width: 100%;
     }
-
     .canvas-container {
         display: none;
     }
